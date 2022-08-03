@@ -21,6 +21,7 @@ class Lead extends Model
         'contact_two',
         'status',
         'product_type',
+        'house_type',
         'type',
         'budget',
         'location',
