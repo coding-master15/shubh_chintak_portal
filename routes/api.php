@@ -30,3 +30,7 @@ Route::post('register', function (Request $request) {
 Route::post('leads', function (Request $request) {
     return (new ApiController($request))->getLeads();
 });
+
+Route::post('leads/add', function (Request $request) {
+    return (new ApiController($request))->addLead();
+});

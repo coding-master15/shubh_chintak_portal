@@ -23,6 +23,27 @@ class ApiController extends Controller
         return Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
     }
 
+    public function addLead() {
+        $lead = Lead::insert([
+            'user_id' => $this->request->input('user_id'),
+            'name' => $this->request->input('name'),
+            'contact_one' => $this->request->input('contact_one'),
+            'contact_two' => $this->request->input('contact_two'),
+            'status' => $this->request->input('status'),
+            'product_type' => $this->request->input('product_type'),
+            'house_type' => $this->request->input('house_type'),
+            'type' => $this->request->input('type'),
+            'budget' => $this->request->input('budget'),
+            'location' => $this->request->input('location'),
+            'title' => $this->request->input('title'),
+            'description' => $this->request->input('description'),
+        ]);
+        if($this->request->input('type') == 'seller' && ($this->request->input('product_type') == 'buy_house' || $this->request->input('product_type') == 'rent_house')) {
+            
+        }
+        return Lead::find($lead);
+    }
+
     public function login() {
         return Customer::where('phone', $this->request->input('phone'))->where('phone_code', $this->request->input('phone_code'))->first();
     }
