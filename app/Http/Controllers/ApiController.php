@@ -20,7 +20,7 @@ class ApiController extends Controller
     }
 
     public function getLeads() {
-        return Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10, ['*'], 'page', $this->request->input('per_page') ?? 1);
+        return Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
     }
 
     public function login() {
