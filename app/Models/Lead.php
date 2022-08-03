@@ -15,6 +15,7 @@ class Lead extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'code',
         'user_id',
         'name',
         'contact_one',

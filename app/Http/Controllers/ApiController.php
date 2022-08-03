@@ -24,7 +24,15 @@ class ApiController extends Controller
     }
 
     public function addLead() {
+        $last = DB::table('leads')->latest('created_at')->first();
+        $lastId = strval($last);
+        $code = '';
+        for($i = 0; $i < (10-strlen($lastId)); $i++) {
+            $code.='0';
+        }
+        $code.=$lastId;
         $lead = Lead::insert([
+            'code' => $code,
             'user_id' => $this->request->input('user_id'),
             'name' => $this->request->input('name'),
             'contact_one' => $this->request->input('contact_one'),
