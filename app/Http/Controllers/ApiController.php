@@ -24,13 +24,7 @@ class ApiController extends Controller
     }
 
     public function addLead() {
-        $last = DB::table('leads')->latest('created_at')->first();
-        $lastId = strval($last);
-        $code = '';
-        for($i = 0; $i < (10-strlen($lastId)); $i++) {
-            $code.='0';
-        }
-        $code.=$lastId;
+        
         $lead = Lead::insert([
             'code' => $code,
             'user_id' => $this->request->input('user_id'),
@@ -49,7 +43,16 @@ class ApiController extends Controller
         if($this->request->input('type') == 'seller' && ($this->request->input('product_type') == 'buy_house' || $this->request->input('product_type') == 'rent_house')) {
             
         }
-        return Lead::find($lead);
+        $leada = Lead::find($lead);
+        $lastId = strval($lead);
+        $code = '';
+        for($i = 0; $i < (10-strlen($lastId)); $i++) {
+            $code.='0';
+        }
+        $code.=$lastId;
+        $leada->code = $code;
+        $leada->save();
+        return $leada;
     }
 
     public function login() {
