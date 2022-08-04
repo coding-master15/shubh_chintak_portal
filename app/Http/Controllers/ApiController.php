@@ -116,10 +116,10 @@ class ApiController extends Controller
     }
 
     public function getBankDetails() {
-        return Bank::where('user_id', $this->request->input('user_id'));
+        return Bank::where('user_id', $this->request->input('user_id'))->first();
     }
 
     public function getAddress() {
-        return Address::where('user_id', $this->request->input('user_id'));
+        return Address::where('user_id', $this->request->input('user_id'))->first();
     }
 }
