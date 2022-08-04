@@ -34,3 +34,11 @@ Route::post('leads', function (Request $request) {
 Route::post('leads/add', function (Request $request) {
     return (new ApiController($request))->addLead();
 });
+
+Route::post('address/save', function (Request $request) {
+    return (new ApiController($request))->saveAddress();
+});
+
+Route::post('bank/save', function (Request $request) {
+    return (new ApiController($request))->saveBankDetails();
+});

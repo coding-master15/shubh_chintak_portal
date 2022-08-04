@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Customer;
+use App\Models\Address;
 
 class ApiController extends Controller
 {
@@ -69,5 +70,46 @@ class ApiController extends Controller
             'phone_code' =>  $this->request->input('phone_code'),
         ]);
         return Customer::find($customer);
+    }
+
+    public function saveAddress() {
+        $address = Address::where('user_id', $this->request->input('user_id'))->first();
+        if($address) {
+            $address->country = $this->request->input('country');
+            $address->city = $this->request->input('city');
+            $address->zip = $this->request->input('zip');
+            $address->state = $this->request->input('state');
+            $address->address = $this->request->input('address');
+            $address->save();
+        } else {
+            $addressId = Address::insert([
+                'user_id' => $this->request->input('user_id'),
+                'country' => $this->request->input('country'),
+                'city' => $this->request->input('city'),
+                'zip' => $this->request->input('zip'),
+                'state' => $this->request->input('state'),
+                'address' => $this->request->input('address'),
+            ]);
+            $address = Address::find($addressId);
+        }
+        return $address;
+    }
+
+    public function saveBankDetails() {
+        $bank = Bank::where('user_id', $this->request->input('user_id'))->first();
+        if($bank) {
+            $bank->name = $this->request->input('name');
+            $bank->title = $this->request->input('title');
+            $bank->number = $this->request->input('number');
+        } else {
+            $bankId = Bank::insert([
+                'user_id' => $this->request->input('user_id'),
+                'name' => $this->request->input('name'),
+                'title' => $this->request->input('title'),
+                'number' => $this->request->input('number'),
+            ]);
+            $bank = Bank::find($bankId);
+        }
+        return $bank;
     }
 }
