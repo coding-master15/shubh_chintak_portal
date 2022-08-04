@@ -96,6 +96,7 @@ class ApiController extends Controller
     }
 
     public function saveBankDetails() {
+        
         $bank = Bank::where('user_id', $this->request->input('user_id'))->first();
         if($bank) {
             $bank->name = $this->request->input('name');
@@ -111,5 +112,13 @@ class ApiController extends Controller
             $bank = Bank::find($bankId);
         }
         return $bank;
+    }
+
+    public function getBankDetails() {
+        return Bank::where('user_id', $this->request->input('user_id'));
+    }
+
+    public function getAddress() {
+        return Address::where('user_id', $this->request->input('user_id'));
     }
 }

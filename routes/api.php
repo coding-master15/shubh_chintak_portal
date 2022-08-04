@@ -42,3 +42,11 @@ Route::post('address/save', function (Request $request) {
 Route::post('bank/save', function (Request $request) {
     return (new ApiController($request))->saveBankDetails();
 });
+
+Route::post('address/get', function (Request $request) {
+    return (new ApiController($request))->getAddress();
+});
+
+Route::post('bank/get', function (Request $request) {
+    return (new ApiController($request))->getBankDetails();
+});
