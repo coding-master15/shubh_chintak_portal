@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Customer;
 use App\Models\Address;
+use App\Models\Bank;
 
 class ApiController extends Controller
 {
