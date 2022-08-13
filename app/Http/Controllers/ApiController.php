@@ -35,11 +35,12 @@ class ApiController extends Controller
             'contact_two' => $this->request->input('contact_two'),
             'status' => $this->request->input('status'),
             'product_type' => $this->request->input('product_type'),
-            'house_type' => $this->request->input('house_type'),
+            'service_type' => $this->request->input('service_type'),
             'type' => $this->request->input('type'),
             'budget' => $this->request->input('budget'),
-            'location' => $this->request->input('location'),
-            'title' => $this->request->input('title'),
+            'area' => $this->request->input('area'),
+            'city' => $this->request->input('city'),
+            'pincode' => $this->request->input('pincode'),
             'description' => $this->request->input('description'),
         ]);
         if($this->request->input('type') == 'seller' && ($this->request->input('product_type') == 'buy_house' || $this->request->input('product_type') == 'rent_house')) {
