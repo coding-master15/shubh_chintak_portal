@@ -7,6 +7,8 @@ use App\Models\Lead;
 use App\Models\Customer;
 use App\Models\Address;
 use App\Models\Bank;
+use App\Models\SuccessStory;
+use App\Models\Testimonial;
 
 class ApiController extends Controller
 {
@@ -23,6 +25,14 @@ class ApiController extends Controller
 
     public function getLeads() {
         return Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
+    }
+
+    public function getSuccessStories() {
+        return SuccessStory::paginate($this->request->input('per_page') ?? 10);
+    }
+
+    public function getTestimonials() {
+        return Testimonial::paginate($this->request->input('per_page') ?? 10);
     }
 
     public function getHotDeals() {

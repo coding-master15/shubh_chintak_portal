@@ -31,6 +31,14 @@ Route::post('leads', function (Request $request) {
     return (new ApiController($request))->getLeads();
 });
 
+Route::post('testimonials', function (Request $request) {
+    return (new ApiController($request))->getTestimonials();
+});
+
+Route::post('stories', function (Request $request) {
+    return (new ApiController($request))->getSuccessStories();
+});
+
 Route::post('hotdeals', function (Request $request) {
     return (new ApiController($request))->getHotDeals();
 });
