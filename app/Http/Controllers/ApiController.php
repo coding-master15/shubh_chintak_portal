@@ -45,8 +45,9 @@ class ApiController extends Controller
         if($this->request->input('type') == 'seller' && ($this->request->input('product_type') == 'buy_house' || $this->request->input('product_type') == 'rent_house')) {
             
         }
-        $leada = Lead::find($lead);
-        $lastId = strval($lead);
+        $lid = $DB::getPdo()->lastInsertId();
+        $leada = Lead::find($lid);
+        $lastId = strval($lid);
         $code = '';
         for($i = 0; $i < (10-strlen($lastId)); $i++) {
             $code.='0';
