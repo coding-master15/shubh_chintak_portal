@@ -28,7 +28,6 @@ class ApiController extends Controller
     public function addLead() {
         
         $lead = Lead::insert([
-            'code' => $code,
             'user_id' => $this->request->input('user_id'),
             'name' => $this->request->input('name'),
             'contact_one' => $this->request->input('contact_one'),
