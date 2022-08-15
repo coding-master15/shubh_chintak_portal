@@ -25,6 +25,10 @@ class ApiController extends Controller
         return Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
     }
 
+    public function getHotDeals() {
+        return Lead::where('type', 'seller')->where('is_hotdeal', 1)->paginate($this->request->input('per_page') ?? 10);
+    }
+
     public function addLead() {
         
         $lead = \DB::table('leads')->insertGetId([

@@ -31,6 +31,10 @@ Route::post('leads', function (Request $request) {
     return (new ApiController($request))->getLeads();
 });
 
+Route::post('hotdeals', function (Request $request) {
+    return (new ApiController($request))->getHotDeals();
+});
+
 Route::post('leads/add', function (Request $request) {
     return (new ApiController($request))->addLead();
 });
