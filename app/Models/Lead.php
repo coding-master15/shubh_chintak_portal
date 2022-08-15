@@ -30,6 +30,7 @@ class Lead extends Model
         'pincode',
         'description',
         'profit',
+        'is_hotdeal',
         'confirmed_at',
     ];
 
