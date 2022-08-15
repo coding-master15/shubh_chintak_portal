@@ -27,7 +27,7 @@ class ApiController extends Controller
 
     public function addLead() {
         
-        $lead = Lead::insert([
+        $lead = \DB::table('leads')->insertGetId([
             'user_id' => $this->request->input('user_id'),
             'name' => $this->request->input('name'),
             'contact_one' => $this->request->input('contact_one'),
@@ -45,9 +45,8 @@ class ApiController extends Controller
         if($this->request->input('type') == 'seller' && ($this->request->input('product_type') == 'buy_house' || $this->request->input('product_type') == 'rent_house')) {
             
         }
-        $lid = \DB::getPdo()->lastInsertId();
-        $leada = Lead::find($lid);
-        $lastId = strval($lid);
+        $leada = Lead::find($lead);
+        $lastId = strval($lead);
         $code = '';
         for($i = 0; $i < (10-strlen($lastId)); $i++) {
             $code.='0';
