@@ -49,6 +49,7 @@ class ApiController extends Controller
                 $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
             }
         }
+        return $data;
     }
 
     public function addLead() {
