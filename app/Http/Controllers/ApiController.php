@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lead;
+use App\Models\LeadMeta;
 use App\Models\Customer;
 use App\Models\Address;
 use App\Models\Bank;
@@ -62,8 +63,32 @@ class ApiController extends Controller
             'pincode' => $this->request->input('pincode'),
             'description' => $this->request->input('description'),
         ]);
-        if($this->request->input('type') == 'seller' && ($this->request->input('product_type') == 'buy_house' || $this->request->input('product_type') == 'rent_house')) {
-            
+        if($this->request->input('type') == 'seller') {
+            foreach($this->request->all() as $key => $value) {
+                if(!in_array($key, [
+                    'user_id',
+                    'name',
+                    'contact_one',
+                    'contact_two',
+                    'status',
+                    'product_type',
+                    'service_type',
+                    'type',
+                    'budget',
+                    'area',
+                    'city',
+                    'pincode',
+                    'description',
+                ])) {
+                    if($value != '') {
+                        LeadMeta::insert([
+                            'key' => $key,
+                            'value' => $value,
+                            'lead_id' => $lead,
+                        ]);
+                    }
+                }
+            }
         }
         $leada = Lead::find($lead);
         $lastId = strval($lead);
