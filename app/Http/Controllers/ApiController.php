@@ -24,7 +24,13 @@ class ApiController extends Controller
     }
 
     public function getLeads() {
-        return Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
+        $data = Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
+        foreach($data->data as $lead) {
+            if($lead->type == 'seller') {
+                $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
+            }
+        }
+        return $data;
     }
 
     public function getSuccessStories() {
