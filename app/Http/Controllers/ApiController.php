@@ -43,7 +43,7 @@ class ApiController extends Controller
     }
 
     public function getHotDeals() {
-        $data = Lead::where('type', 'seller')->where('is_hotdeal', 1)->paginate($this->request->input('per_page') ?? 10);
+        $data = Lead::where('is_hotdeal', 1)->paginate($this->request->input('per_page') ?? 10);
         foreach($data as $lead) {
             if($lead->type == 'seller') {
                 $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
