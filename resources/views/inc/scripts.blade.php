@@ -899,7 +899,7 @@
       </script>
       @break
 
-    @case('ordering_sorting')
+      @case('ordering_sorting')
       {{-- Table Datatable Order Sorting --}}
       <script src="{{asset('plugins/table/datatable/datatables.js')}}"></script>
       <script>        
@@ -911,11 +911,23 @@
                   "sSearchPlaceholder": "Search...",
                   "sLengthMenu": "Results :  _MENU_",
               },
+              "processing": true,
+              "serverSide": true,
+              "ajax": {
+                  url: "{{ route('getleads') }}",
+                  type: 'get',
+                  headers: { 'content-type': 'application/x-www-form-urlencoded', 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                  data: param,
+              },
+              "columns": [
+                  {data: 'id', name: 'id'},
+                  {data: 'action', name: 'action', orderable: false, searchable: false},
+              ],
               "order": [[ 3, "desc" ]],
               "stripeClasses": [],
               "lengthMenu": [7, 10, 20, 50],
               "pageLength": 7,
-              drawCallback: function () { $('.dataTables_paginate > .pagination').addClass(' pagination-style-13 pagination-bordered mb-5'); }
+              "drawCallback": function () { $('.dataTables_paginate > .pagination').addClass(' pagination-style-13 pagination-bordered mb-5'); }
           } );
       </script>
       @break

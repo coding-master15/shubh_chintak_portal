@@ -57,6 +57,7 @@ class ApiController extends Controller
         $lead = \DB::table('leads')->insertGetId([
             'user_id' => $this->request->input('user_id'),
             'name' => $this->request->input('name'),
+            'contact_ref' => $this->request->input('contact_ref'),
             'contact_one' => $this->request->input('contact_one'),
             'contact_two' => $this->request->input('contact_two'),
             'status' => $this->request->input('status'),

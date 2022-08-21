@@ -1235,7 +1235,19 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'multiple_tables';
                 return view('pages.tables.table_dt_multiple_tables')->with($data);
             });
-            Route::get('/ordering_sorting', function() {
+            // Route::get('/ordering_sorting', function() {
+            //     // $category_name = '';
+            //     $data = [
+            //         'category_name' => 'datatable',
+            //         'page_name' => 'ordering_sorting',
+            //     'has_scrollspy' => 0,
+            //     'scrollspy_offset' => '',
+
+            //     ];
+            //     // $pageName = 'ordering_sorting';
+            //     return view('pages.tables.table_dt_ordering_sorting')->with($data);
+            // });
+            Route::get('/leads', function() {
                 // $category_name = '';
                 $data = [
                     'category_name' => 'datatable',
@@ -1245,8 +1257,9 @@ Route::group(['middleware' => 'auth'] , function() {
 
                 ];
                 // $pageName = 'ordering_sorting';
-                return view('pages.tables.table_dt_ordering_sorting')->with($data);
+                return view('pages.tables.table_lead')->with($data);
             });
+            Route::get('/getleads', 'LeadController@getleads');
             Route::get('/range_search', function() {
                 // $category_name = '';
                 $data = [
