@@ -10,8 +10,8 @@
                 
                 @if ($page_name != 'alt_menu' && $page_name != 'blank_page' && $page_name != 'boxed' && $page_name != 'breadcrumb' )
 
-                    <li class="menu {{ ($category_name === 'ordering_sorting') ? 'active' : '' }}">
-                        <a href="/tables/datatables/leads" data-active="{{ ($category_name === 'ordering_sorting') ? 'true' : 'false' }}" aria-expanded="{{ ($category_name === 'ordering_sorting') ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <li class="menu {{ ($page_name === 'ordering_sorting') ? 'active' : '' }}">
+                        <a href="/tables/datatables/leads" data-active="{{ ($page_name === 'ordering_sorting') ? 'true' : 'false' }}" aria-expanded="{{ ($page_name === 'ordering_sorting') ? 'true' : 'false' }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                                 <span>Leads</span>
@@ -54,9 +54,7 @@
                             <li class="{{ ($page_name === 'basic-light') ? 'active' : '' }}">
                                 <a href="/tables/datatables/basic-light"> Light </a>
                             </li>
-                            <li class="{{ ($page_name === 'ordering_sorting') ? 'active' : '' }}">
-                                <a href="/tables/datatables/ordering_sorting"> Order Sorting </a>
-                            </li>
+                           
                             <li class="{{ ($page_name === 'multi-column_ordering') ? 'active' : '' }}">
                                 <a href="/tables/datatables/multi-column_ordering"> Multi-Column </a>
                             </li>
