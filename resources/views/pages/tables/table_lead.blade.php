@@ -11,12 +11,7 @@
                                 <table id="default-ordering" class="table table-hover" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -24,12 +19,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID</th>
                                             <th class="invisible"></th>
                                         </tr>
                                     </tfoot>
