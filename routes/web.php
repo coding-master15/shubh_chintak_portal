@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'auth'] , function() {
-
+    Route::get('/getleads', 'LeadController@getleads');
     // $this->middleware
 
     Route::get('/analytics', function() {
@@ -1259,7 +1259,6 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_lead')->with($data);
             });
-            Route::get('/getleads', 'LeadController@getleads');
             Route::get('/range_search', function() {
                 // $category_name = '';
                 $data = [
