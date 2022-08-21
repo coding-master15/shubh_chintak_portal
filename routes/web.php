@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'auth'] , function() {
-    Route::get('/getleads', 'LeadController@getleads');
+    Route::get('/getleads', 'LeadController@getleads')->name('getleads');
     // $this->middleware
 
     Route::get('/analytics', function() {
