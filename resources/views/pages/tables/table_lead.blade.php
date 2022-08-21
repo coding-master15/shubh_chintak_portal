@@ -12,6 +12,14 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Contact One</th>
+                                            <th>Contact Two</th>
+                                            <th>Type</th>
+                                            <th>Product Type</th>
+                                            <th>Service Type</th>
+                                            <th>Budget</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -19,7 +27,15 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                        <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Contact One</th>
+                                            <th>Contact Two</th>
+                                            <th>Type</th>
+                                            <th>Product Type</th>
+                                            <th>Service Type</th>
+                                            <th>Budget</th>
+                                            <th>Status</th>
                                             <th class="invisible"></th>
                                         </tr>
                                     </tfoot>
