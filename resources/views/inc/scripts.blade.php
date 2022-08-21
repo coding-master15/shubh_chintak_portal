@@ -923,7 +923,7 @@
                   {data: 'id', name: 'id'},
                   {data: 'action', name: 'action', orderable: false, searchable: false},
               ],
-              "order": [[ 3, "desc" ]],
+              "order": [[ 0, "desc" ]],
               "stripeClasses": [],
               "lengthMenu": [7, 10, 20, 50],
               "pageLength": 7,
