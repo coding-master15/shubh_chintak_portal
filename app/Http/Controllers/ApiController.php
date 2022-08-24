@@ -42,6 +42,12 @@ class ApiController extends Controller
         return Testimonial::paginate($this->request->input('per_page') ?? 10);
     }
 
+    public function getLeadById() {
+        $lead = Lead::find($this->request->input('id'));
+        $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
+        return $lead;
+    }
+
     public function getHotDeals() {
         $data = Lead::where('is_hotdeal', 1)->paginate($this->request->input('per_page') ?? 10);
         foreach($data as $lead) {

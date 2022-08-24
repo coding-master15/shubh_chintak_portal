@@ -43,6 +43,10 @@ Route::post('hotdeals', function (Request $request) {
     return (new ApiController($request))->getHotDeals();
 });
 
+Route::post('lead_by_id', function (Request $request) {
+    return (new ApiController($request))->getLeadById();
+});
+
 Route::post('leads/add', function (Request $request) {
     return (new ApiController($request))->addLead();
 });
