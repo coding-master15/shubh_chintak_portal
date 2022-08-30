@@ -34,7 +34,7 @@ class LeadController extends Controller
                 return Datatables::of($data)
                         ->addIndexColumn()
                         ->addColumn('action', function($row){
-                                $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                                $btn = '<a href="/lead/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
                                 return $btn;
                         })
                         ->rawColumns(['action'])
