@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\LeadDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,9 @@ Route::group(['middleware' => 'auth'] , function() {
         // $pageName = 'analytics';
         return view('dashboard2')->with($data);
     });
+
+    Route::get('/lead/{id}', [LeadDetailsController::class, 'index']);
+    Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
     
     Route::get('/sales', function() {
         // $category_name = '';
