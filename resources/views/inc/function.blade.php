@@ -215,8 +215,12 @@ if (!function_exists('setTitle')) :
             echo 'DataTables Multi-column Ordering ' . $admin_name;
         elseif ($page_name === 'multiple_tables') :
             echo 'Multiple DataTables ' . $admin_name;
-        elseif ($page_name === 'ordering_sorting') :
-            echo 'DataTables Default Order Sorting ' . $admin_name;
+        elseif ($page_name === 'buyer_leads') :
+            echo 'Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads') :
+            echo 'Seller Leads ' . $admin_name;
+        elseif ($page_name === 'users') :
+            echo 'Users ' . $admin_name;
         elseif ($page_name === 'range_search') :
             echo 'DataTables Range Search ' . $admin_name;
 
@@ -622,10 +626,17 @@ if (!function_exists('set_breadcrumb')) {
             // echo 'Multiple DataTables ' . $admin_name;
             echo '<li class="breadcrumb-item"><a href="javascript:void(0);">DataTables</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><span>Multiple</span></li>';
-        elseif ($page_name === 'ordering_sorting') :
+        elseif ($page_name === 'buyer_leads') :
             // echo 'DataTables Default Order Sorting ' . $admin_name;
-            echo '<li class="breadcrumb-item"><a href="javascript:void(0);">DataTables</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><span>Order Sorting</span></li>';
+            echo '<li class="breadcrumb-item"><a href="javascript:void(0);">Leads</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Buyer Leads</span></li>';
+        elseif ($page_name === 'seller_leads') :
+            // echo 'DataTables Default Order Sorting ' . $admin_name;
+            echo '<li class="breadcrumb-item"><a href="javascript:void(0);">Leads</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Seller Leads</span></li>';
+        elseif ($page_name === 'users') :
+            // echo 'DataTables Default Order Sorting ' . $admin_name;
+            echo '<li class="breadcrumb-item"><a href="javascript:void(0);">Users</a></li>';
         elseif ($page_name === 'range_search') :
             // echo 'DataTables Range Search ' . $admin_name;
             echo '<li class="breadcrumb-item"><a href="javascript:void(0);">DataTables</a></li>

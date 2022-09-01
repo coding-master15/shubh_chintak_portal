@@ -22,6 +22,7 @@ use App\Http\Controllers\LeadDetailsController;
 
 Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getleads', 'LeadController@getleads')->name('getleads');
+    Route::get('/getusers', 'LeadController@getusers')->name('getusers');
     // $this->middleware
 
     Route::get('/analytics', function() {
@@ -1240,29 +1241,38 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'multiple_tables';
                 return view('pages.tables.table_dt_multiple_tables')->with($data);
             });
-            // Route::get('/ordering_sorting', function() {
-            //     // $category_name = '';
-            //     $data = [
-            //         'category_name' => 'datatable',
-            //         'page_name' => 'ordering_sorting',
-            //     'has_scrollspy' => 0,
-            //     'scrollspy_offset' => '',
-
-            //     ];
-            //     // $pageName = 'ordering_sorting';
-            //     return view('pages.tables.table_dt_ordering_sorting')->with($data);
-            // });
-            Route::get('/leads', function() {
+            Route::get('/buyer_leads', function() {
                 // $category_name = '';
                 $data = [
                     'category_name' => 'datatable',
-                    'page_name' => 'ordering_sorting',
+                    'page_name' => 'buyer_leads',
                 'has_scrollspy' => 0,
                 'scrollspy_offset' => '',
-
                 ];
                 // $pageName = 'ordering_sorting';
-                return view('pages.tables.table_lead')->with($data);
+                return view('pages.tables.table_buyer_lead')->with($data);
+            });
+            Route::get('/seller_leads', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'datatable',
+                    'page_name' => 'seller_leads',
+                'has_scrollspy' => 0,
+                'scrollspy_offset' => '',
+                ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_seller_lead')->with($data);
+            });
+            Route::get('/users', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'users',
+                    'page_name' => 'users',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_users')->with($data);
             });
             Route::get('/range_search', function() {
                 // $category_name = '';
