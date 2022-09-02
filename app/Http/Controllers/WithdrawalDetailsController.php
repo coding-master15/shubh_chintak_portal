@@ -47,6 +47,7 @@ class WithdrawalDetailsController extends Controller
         $data['withdraw'] = $withdraw;
         $data['lead'] = $lead;
         $data['user'] = $user;
+        $data['bank'] = $bank;
 
         return view('withdrawal-details')->with($data);
     }
