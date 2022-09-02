@@ -120,8 +120,12 @@ class WithdrawalDetailsController extends Controller
 
     public function updateStatus(Request $request)
     {
-       $lead = WithdrawalRequest::find($request->input('id'));
-       $lead->status = 'completed';
+       $withdraw = WithdrawalRequest::find($request->input('id'));
+       $withdraw->status = 'completed';
+       $withdraw->save();
+
+       $lead = Lead::find($withdraw->lead_id);
+       $lead->status = 'withdrawn';
        $lead->save();
 
        return redirect()->back()->withSuccess('Updated');
