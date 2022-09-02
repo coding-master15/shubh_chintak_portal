@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\LeadMeta;
+use App\Models\Customer;
+use App\Models\WithdrawalRequest;
 
 class WithdrawalDetailsController extends Controller
 {
@@ -36,10 +38,13 @@ class WithdrawalDetailsController extends Controller
             $arr->{$meta->key} = $meta->value;
         }
 
+        $withdraw = WithdrawalRequest::find($id);
+        $lead = Lead::find($withdraw->lead_id);
+        $user = Customer::find($lead->user_id);
         $data['idd'] = $id;
-        $data['lead'] = Lead::find($id);
-        $data['meta'] = $arr;
-        $data['type_name'] = $this->getTypeShortName($data['lead']->product_type);
+        $data['withdraw'] = $withdraw;
+        $data['lead'] = $lead;
+        $data['user'] = $user;
 
         return view('withdrawal-details')->with($data);
     }

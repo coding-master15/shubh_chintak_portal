@@ -19,11 +19,17 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <span>Name: </span>
-                                                <h4>{{ $user->name }}</h4>
+                                                <h4>{{ $user->fname . ' ' . $user->lname }}</h4>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <span>Phone: </span>
                                                 <h4>{{ $user->phone_code.$user->phone }}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <span>Email: </span>
+                                                <h4>{{ $user->email }}</h4>
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">

@@ -39,6 +39,10 @@ class ApiController extends Controller
         return SuccessStory::paginate($this->request->input('per_page') ?? 10);
     }
 
+    public function withdrawalRequests() {
+        return WithdrawalRequest::where('lead_id', $this->request->input('lead_id'))->get();
+    }
+
     public function requestWithdrawal() {
         $data = WithdrawalRequest::insert([
             'lead_id' => $this->request->input('lead_id'),

@@ -61,7 +61,10 @@ class LeadController extends Controller
                     })
                     ->addColumn('amount', function(WithdrawalRequest $customer) {
                         $lead = Lead::find($customer->lead_id);
-                        return $user->profit;
+                        return $lead->profit;
+                    })
+                    ->editColumn('created_at', function(WithdrawalRequest $customer) {
+                        return date('d-M-Y g:i A', strtotime($customer->created_at));
                     })
                     ->addColumn('action', function($row){
                         $btn = '<a href="/withdrawal-request/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
