@@ -81,10 +81,10 @@ class LeadController extends Controller
                           </div>
                         </div>
                       </div>';
-                      $btn .= '<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal2">
+                      $btn .= '<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal'.$row->id.'">
                         Delete
                       </button>';
-                      $btn.='<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                      $btn.='<div class="modal fade" id="exampleModal'.$row->id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel'.$row->id.'" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -144,14 +144,14 @@ class LeadController extends Controller
                           </div>
                         </div>
                       </div>';
-                      $btn .= '<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal2">
+                      $btn .= '<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal'.$row->id.'">
                         Delete
                       </button>';
-                      $btn.='<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                      $btn.='<div class="modal fade" id="exampleModal'.$row->id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel'.$row->id.'" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel2">Alert</h5>
+                              <h5 class="modal-title" id="exampleModalLabel'.$row->id.'">Alert</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
