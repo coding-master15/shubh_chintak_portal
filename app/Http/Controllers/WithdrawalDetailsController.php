@@ -7,6 +7,7 @@ use App\Models\Lead;
 use App\Models\LeadMeta;
 use App\Models\Customer;
 use App\Models\WithdrawalRequest;
+use App\Models\Bank;
 
 class WithdrawalDetailsController extends Controller
 {
