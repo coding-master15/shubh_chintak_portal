@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\WithdrawalDetailsController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\StoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getusers', 'LeadController@getusers')->name('getusers');
     Route::get('/getwithdrawalrequests', 'LeadController@getwithdrawalrequests')->name('getwithdrawalrequests');
     Route::get('/gettestimonials', 'LeadController@gettestimonials')->name('gettestimonials');
+    Route::get('/getstories', 'LeadController@getstories')->name('getstories');
     // $this->middleware
 
     Route::get('/analytics', function() {
@@ -51,10 +53,21 @@ Route::group(['middleware' => 'auth'] , function() {
         ];
         return view('add-testimonial')->with($data);
     });
+    Route::get('/add/story', function () {
+        $data = [
+            'category_name' => 'stories',
+            'page_name' => 'add_story',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        return view('add-success_story')->with($data);
+    });
     Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
-    Route::post('/lead/update', [TestimonialController::class, 'addTestimonial']);
+    Route::post('/testimonial/add', [TestimonialController::class, 'addTestimonial']);
+    Route::post('/story/add', [StoryController::class, 'addStory']);
     Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
+    Route::post('/delete/story', [StoryController::class, 'deleteStory']);
     Route::post('/add/withdrawal', [WithdrawalDetailsController::class, 'updateStatus']);
     
     Route::get('/sales', function() {
@@ -1302,6 +1315,17 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_testimonials')->with($data);
             })->name('tables.testimonials');
+            Route::get('/stories', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'stories',
+                    'page_name' => 'view_stories',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_stories')->with($data);
+            })->name('tables.stories');
             Route::get('/pending_withdrawals', function() {
                 // $category_name = '';
                 $data = [
