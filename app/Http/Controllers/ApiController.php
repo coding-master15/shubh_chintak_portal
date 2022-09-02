@@ -46,7 +46,7 @@ class ApiController extends Controller
     public function requestWithdrawal() {
         $data = WithdrawalRequest::insert([
             'lead_id' => $this->request->input('lead_id'),
-            'status' => $this->request->input('pending'),
+            'status' => 'pending',
         ]);
 
         return WithdrawalRequest::find($data);
