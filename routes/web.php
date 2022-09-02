@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\WithdrawalDetailsController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getleads', 'LeadController@getleads')->name('getleads');
     Route::get('/getusers', 'LeadController@getusers')->name('getusers');
     Route::get('/getwithdrawalrequests', 'LeadController@getwithdrawalrequests')->name('getwithdrawalrequests');
+    Route::get('/gettestimonials', 'LeadController@gettestimonials')->name('gettestimonials');
     // $this->middleware
 
     Route::get('/analytics', function() {
@@ -40,9 +42,20 @@ Route::group(['middleware' => 'auth'] , function() {
     });
 
     Route::get('/lead/{id}', [LeadDetailsController::class, 'index']);
+    Route::get('/add/testimonial', function () {
+        $data = [
+            'category_name' => 'testimonials',
+            'page_name' => 'add_testimonial',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        return view('add-testimonial')->with($data);
+    });
     Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
-    Route::post('/withdrawal/update', [WithdrawalDetailsController::class, 'updateStatus']);
+    Route::post('/lead/update', [TestimonialController::class, 'addTestimonial']);
+    Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
+    Route::post('/add/withdrawal', [WithdrawalDetailsController::class, 'updateStatus']);
     
     Route::get('/sales', function() {
         // $category_name = '';
@@ -1278,6 +1291,17 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_users')->with($data);
             });
+            Route::get('/testimonials', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'testimonials',
+                    'page_name' => 'view_testimonials',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_testimonials')->with($data);
+            })->name('tables.testimonials');
             Route::get('/pending_withdrawals', function() {
                 // $category_name = '';
                 $data = [
