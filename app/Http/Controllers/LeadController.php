@@ -176,7 +176,7 @@ class LeadController extends Controller
 
     public function getwithdrawalrequests(Request $request)
     {
-                $data = WithdrawalRequest::select('*');
+                $data = WithdrawalRequest::select('*')->where('status', $request->input('status'));
                 return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('name', function(WithdrawalRequest $customer) {
