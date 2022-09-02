@@ -107,6 +107,10 @@
                                                 <span>Status: </span>
                                                 <h4>{{ $withdraw->status }}</h4>
                                             </div>
+                                            <div class="form-group col-md-6">
+                                                <span>Amount: </span>
+                                                <h4>{{ $lead->profit }}</h4>
+                                            </div>
                                         </div>
                                         @if($withdraw->status == 'pending')
                                         <button type="submit" class="btn btn-primary mt-3" style="float: right;">Mark As Completed</button>
