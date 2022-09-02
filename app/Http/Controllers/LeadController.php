@@ -120,7 +120,7 @@ class LeadController extends Controller
                         return date('d-M-Y g:i A', strtotime($testimonial->created_at));
                     })
                     ->editColumn('image', function(SuccessStory $story) {
-                      return '<img src="'.$story->image.'" alt=""/>';
+                      return '<img src="'.$story->image.'" alt="" width="70px" height="70px" />';
                   })
                     ->addColumn('action', function($row){
                         $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
