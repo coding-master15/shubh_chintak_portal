@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::get('/lead/{id}', [LeadDetailsController::class, 'index']);
     Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
+    Route::post('/withdrawal/update', [WithdrawalDetailsController::class, 'updateStatus']);
     
     Route::get('/sales', function() {
         // $category_name = '';
