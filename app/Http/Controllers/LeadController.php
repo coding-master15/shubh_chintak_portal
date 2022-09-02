@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\Lead;
 use App\Models\Customer;
+use App\Models\WithdrawalRequest;
 
 class LeadController extends Controller
 {
@@ -45,6 +46,28 @@ class LeadController extends Controller
                             return $btn;
                         })
                     ->rawColumns(['action', 'avatar'])
+                    ->make(true);
+    }
+
+    public function getwithdrawalrequests(Request $request)
+    {
+                $data = WithdrawalRequest::select('*');
+                return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('name', function(WithdrawalRequest $customer) {
+                        $lead = Lead::find($customer->lead_id);
+                        $user = Customer::find($lead->user_id);
+                        return $user->fname.' '.$user->lname;
+                    })
+                    ->addColumn('amount', function(WithdrawalRequest $customer) {
+                        $lead = Lead::find($customer->lead_id);
+                        return $user->profit;
+                    })
+                    ->addColumn('action', function($row){
+                        $btn = '<a href="/withdrawal-request/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
+                        return $btn;
+                    })
+                    ->rawColumns(['action'])
                     ->make(true);
     }
 }

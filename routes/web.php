@@ -23,6 +23,7 @@ use App\Http\Controllers\LeadDetailsController;
 Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getleads', 'LeadController@getleads')->name('getleads');
     Route::get('/getusers', 'LeadController@getusers')->name('getusers');
+    Route::get('/getwithdrawalrequests', 'LeadController@getwithdrawalrequests')->name('getwithdrawalrequests');
     // $this->middleware
 
     Route::get('/analytics', function() {
@@ -38,6 +39,7 @@ Route::group(['middleware' => 'auth'] , function() {
     });
 
     Route::get('/lead/{id}', [LeadDetailsController::class, 'index']);
+    Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
     
     Route::get('/sales', function() {
@@ -1273,6 +1275,28 @@ Route::group(['middleware' => 'auth'] , function() {
                     ];
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_users')->with($data);
+            });
+            Route::get('/pending_withdrawals', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'withdrawals',
+                    'page_name' => 'pending_withdrawals',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_pending_withdrawal_requests')->with($data);
+            });
+            Route::get('/completed_withdrawals', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'withdrawals',
+                    'page_name' => 'completed_withdrawals',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_pending_withdrawal_requests')->with($data);
             });
             Route::get('/range_search', function() {
                 // $category_name = '';

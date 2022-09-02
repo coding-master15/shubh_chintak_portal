@@ -27,6 +27,10 @@ Route::post('register', function (Request $request) {
     return (new ApiController($request))->register();
 });
 
+Route::post('request/withdraw', function (Request $request) {
+    return (new ApiController($request))->requestWithdrawal();
+});
+
 Route::post('leads', function (Request $request) {
     return (new ApiController($request))->getLeads();
 });

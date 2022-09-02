@@ -221,6 +221,10 @@ if (!function_exists('setTitle')) :
             echo 'Seller Leads ' . $admin_name;
         elseif ($page_name === 'users') :
             echo 'Users ' . $admin_name;
+        elseif ($page_name === 'pending_withdrawals') :
+            echo 'Pending Withdrawals ' . $admin_name;
+        elseif ($page_name === 'completed_withdrawals') :
+            echo 'Completed Withdrawals ' . $admin_name;
         elseif ($page_name === 'range_search') :
             echo 'DataTables Range Search ' . $admin_name;
 
@@ -637,6 +641,12 @@ if (!function_exists('set_breadcrumb')) {
         elseif ($page_name === 'users') :
             // echo 'DataTables Default Order Sorting ' . $admin_name;
             echo '<li class="breadcrumb-item"><a href="javascript:void(0);">Users</a></li>';
+        elseif ($page_name === 'pending_withdrawals') :
+            echo '<li class="breadcrumb-item"><a href="javascript:void(0);">Withdrawals</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Pending Withdrawals</span></li>';
+         elseif ($page_name === 'completed_withdrawals') :
+            echo '<li class="breadcrumb-item"><a href="javascript:void(0);">Withdrawals</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Completed Withdrawals</span></li>';
         elseif ($page_name === 'range_search') :
             // echo 'DataTables Range Search ' . $admin_name;
             echo '<li class="breadcrumb-item"><a href="javascript:void(0);">DataTables</a></li>
