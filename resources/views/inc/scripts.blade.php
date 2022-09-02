@@ -1080,7 +1080,7 @@
                   type: 'get',
                   headers: { 'content-type': 'application/x-www-form-urlencoded', 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                   data: {
-                    'status' : 'pending'
+                    'status' : 'completed'
                   },
               },
               "columns": [

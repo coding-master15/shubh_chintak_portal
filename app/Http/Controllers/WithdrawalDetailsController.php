@@ -41,6 +41,7 @@ class WithdrawalDetailsController extends Controller
         $withdraw = WithdrawalRequest::find($id);
         $lead = Lead::find($withdraw->lead_id);
         $user = Customer::find($lead->user_id);
+        $bank = Bank::where('user_id', $lead->user_id)->first();
         $data['idd'] = $id;
         $data['withdraw'] = $withdraw;
         $data['lead'] = $lead;
@@ -48,31 +49,6 @@ class WithdrawalDetailsController extends Controller
 
         return view('withdrawal-details')->with($data);
     }
-
-    public function getTypeShortName($type) {
-        switch ($type) {
-          case 'buy_house':
-            return 'House';
-          case 'rent_house':
-            return 'House';
-          case 'loan':
-            return 'Loan';
-          case 'insurance':
-            return 'Insurance';
-          case 'vehicles':
-            return 'Vehicle';
-          case 'mobiles':
-            return 'Mobile';
-          case 'electronics':
-            return 'Electronic';
-          case 'events':
-            return 'Event';
-          case 'accounting':
-            return 'Service';
-          default:
-            return '';
-        }
-      }
 
     /**
      * Show the form for creating a new resource.
@@ -142,15 +118,8 @@ class WithdrawalDetailsController extends Controller
 
     public function updateStatus(Request $request)
     {
-       $lead = Lead::find($request->input('id'));
-       $status = $request->input('status') ?? 'confirming';
-       $profit = $request->input('profit') ?? '';
-       $title = $request->input('title') ?? '';
-       $is_hotdeal = $request->input('is_hotdeal') == 'on' ? 1 : 0;
-       $lead->status = $status;
-       $lead->profit = $profit;
-       $lead->title = $title;
-       $lead->is_hotdeal = $is_hotdeal;
+       $lead = WithdrawalRequest::find($request->input('id'));
+       $lead->status = 'completed';
        $lead->save();
 
        return redirect()->back()->withSuccess('Updated');
