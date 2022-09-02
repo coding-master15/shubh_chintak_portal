@@ -32,7 +32,7 @@ class StoryController extends Controller
         SuccessStory::insert([
             'name' => $name,
             'url' => $url,
-            'image' => public_path().'/uploads/'.$newname,
+            'image' => url('/').'/uploads/'.$newname,
         ]);
 
         return redirect()->route('tables.stories', []);
