@@ -24,8 +24,9 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <span>Video Url: </span>
-                                                <input required="required" type="text" name="url" class="form-control">
+                                                <span>Video: </span>
+                                                <input required="required" type="file" name="video" id="">
+                                            
                                             </div>
                                         </div>
                                         <div class="form-row">

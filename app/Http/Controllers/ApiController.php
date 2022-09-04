@@ -142,7 +142,17 @@ class ApiController extends Controller
             'phone' =>  $this->request->input('phone'),
             'phone_code' =>  $this->request->input('phone_code'),
         ]);
-        return Customer::find($customer);
+
+        $value = Customer::find($customer);
+
+        // $data = array('customer'=> $value);
+        // Mail::send('emails.register', $data, function($message) {
+        //     $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
+        //         ('Thanks for Joining Shubh Chintak');
+        //     $message->from('xyz@gmail.com','Shubh Chintak');
+        // });
+
+        return $value;
     }
 
     public function saveAddress() {

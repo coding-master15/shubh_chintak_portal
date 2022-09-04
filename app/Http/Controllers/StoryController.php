@@ -13,9 +13,14 @@ class StoryController extends Controller
         $url = $request->input('url');
 
         $file = $request->file('image');
+        $video = $request->file('video');
 
         if($file == null) {
             return redirect()->back()->withErrors('select image');
+        }
+
+        if($video == null) {
+            return redirect()->back()->withErrors('select video');
         }
 
         $file_name = $file->getClientOriginalName();
@@ -25,13 +30,24 @@ class StoryController extends Controller
 
         if (!in_array($file_ex, array('jpg', 'gif', 'png'))) return redirect()->back()->withErrors('Invalid image extension we just allow JPG, GIF, PNG');
 
+        $video_name = $video->getClientOriginalName();
+        $video_size = round($video->getSize() / 1024);
+        $video_ex = $video->getClientOriginalExtension();
+        $video_mime = $video->getMimeType();
+
+        if (!in_array($video_ex, array('mp4', 'mov', 'wmv', 'avi', 'mkv'))) return redirect()->back()->withErrors('Invalid video extension we just allow MP4, MOV, WMV, AVI and MKV');
+
         $random = Str::random(20);
         $newname = $random.$file_name;
         $file->move(base_path().'/public/uploads/', $newname);
 
+        $randoma = Str::random(20);
+        $newnamea = $randoma.$video_name;
+        $video->move(base_path().'/public/uploads/', $newnamea);
+
         SuccessStory::insert([
             'name' => $name,
-            'url' => $url,
+            'url' => url('/').'/uploads/'.$newnamea,
             'image' => url('/').'/uploads/'.$newname,
         ]);
 
