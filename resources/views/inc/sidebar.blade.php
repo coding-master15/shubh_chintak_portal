@@ -30,24 +30,96 @@
                         </ul>
                     </li>
 
-                    <li class="menu {{ ($category_name === 'datatable') ? 'active' : '' }}">
-                        <a href="#datatables" data-active="{{ ($category_name === 'datatable') ? 'true' : 'false' }}" data-toggle="collapse" aria-expanded="{{ ($category_name === 'datatable') ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <li class="menu {{ ($category_name === 'buyer_leads') ? 'active' : '' }}">
+                        <a href="#datatables" data-active="{{ ($category_name === 'buyer_leads') ? 'true' : 'false' }}" data-toggle="collapse" aria-expanded="{{ ($category_name === 'buyer_leads') ? 'true' : 'false' }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                                <span>Leads</span>
+                                <span>Buyer Leads</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'datatable') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
-                            <li class="{{ ($page_name === 'buyer_leads') ? 'active' : '' }}">
-                                <a href="/tables/datatables/buyer_leads"> Buyer Leads </a>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_pending') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/confirming"> Confirming Leads </a>
                             </li>
                         </ul>
-                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'datatable') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
-                            <li class="{{ ($page_name === 'seller_leads') ? 'active' : '' }}">
-                                <a href="/tables/datatables/seller_leads"> Seller Leads </a>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_screening') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/screening"> Screening Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_pitching') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/pitching"> Pitching Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_pending') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/pending"> Pending Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_success') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/success"> Success Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_declined') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/declined"> Declined Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'buyer_leads') ? 'show' : '' }}" id="datatables" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'buyer_leads_withdrawn') ? 'active' : '' }}">
+                                <a href="/tables/datatables/buyer_leads/withdrawn"> Withdrawn Leads </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu {{ ($category_name === 'buyer_leads') ? 'active' : '' }}">
+                        <a href="#datatables2" data-active="{{ ($category_name === 'buyer_leads') ? 'true' : 'false' }}" data-toggle="collapse" aria-expanded="{{ ($category_name === 'buyer_leads') ? 'true' : 'false' }}" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                <span>Seller Leads</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_pending') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/confirming"> Confirming Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_screening') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/screening"> Screening Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_pitching') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/pitching"> Pitching Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_pending') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/pending"> Pending Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_success') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/success"> Success Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_declined') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/declined"> Declined Leads </a>
+                            </li>
+                        </ul>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'seller_leads') ? 'show' : '' }}" id="datatables2" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'seller_leads_withdrawn') ? 'active' : '' }}">
+                                <a href="/tables/datatables/seller_leads/withdrawn"> Withdrawn Leads </a>
                             </li>
                         </ul>
                     </li>

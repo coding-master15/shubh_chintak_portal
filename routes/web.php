@@ -1271,27 +1271,29 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'multiple_tables';
                 return view('pages.tables.table_dt_multiple_tables')->with($data);
             });
-            Route::get('/buyer_leads', function() {
+            Route::get('/buyer_leads/{status}', function(Request $request, $status) {
                 // $category_name = '';
                 $data = [
-                    'category_name' => 'datatable',
-                    'page_name' => 'buyer_leads',
-                'has_scrollspy' => 0,
-                'scrollspy_offset' => '',
+                    'category_name' => 'buyer_leads',
+                    'page_name' => 'buyer_leads_'.$status,
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    'status' => $status,
                 ];
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_buyer_lead')->with($data);
             });
-            Route::get('/seller_leads', function() {
+            Route::get('/seller_leads/{status}', function(Request $request, $status) {
                 // $category_name = '';
                 $data = [
-                    'category_name' => 'datatable',
-                    'page_name' => 'seller_leads',
-                'has_scrollspy' => 0,
-                'scrollspy_offset' => '',
+                    'category_name' => 'seller_leads',
+                    'page_name' => 'seller_leads_'.$status,
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    'status' => $status,
                 ];
                 // $pageName = 'ordering_sorting';
-                return view('pages.tables.table_seller_lead')->with($data);
+                return view('pages.tables.table_buyer_lead')->with($data);
             });
             Route::get('/users', function() {
                 // $category_name = '';

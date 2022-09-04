@@ -24,7 +24,7 @@ class LeadController extends Controller
 
     public function getleads(Request $request)
     {
-                $data = Lead::select('*')->where('type', $request->input('type') ?? 'buyer');
+                $data = Lead::select('*')->where('type', $request->input('type') ?? 'buyer')->where('status', $request->input('status') ?? 'confirming');
                 return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

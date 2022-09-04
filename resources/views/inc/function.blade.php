@@ -215,10 +215,34 @@ if (!function_exists('setTitle')) :
             echo 'DataTables Multi-column Ordering ' . $admin_name;
         elseif ($page_name === 'multiple_tables') :
             echo 'Multiple DataTables ' . $admin_name;
-        elseif ($page_name === 'buyer_leads') :
-            echo 'Buyer Leads ' . $admin_name;
-        elseif ($page_name === 'seller_leads') :
-            echo 'Seller Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_confirming') :
+            echo 'Confirming Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_screening') :
+            echo 'Screening Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_pitching') :
+            echo 'Pitching Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_pending') :
+            echo 'Pending Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_success') :
+            echo 'Success Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_declined') :
+            echo 'Declined Buyer Leads ' . $admin_name;
+        elseif ($page_name === 'buyer_leads_withdrawn') :
+            echo 'Withdrawn Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_confirming') :
+            echo 'Confirming Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_screening') :
+            echo 'Screening Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_pitching') :
+            echo 'Pitching Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_pending') :
+            echo 'Pending Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_success') :
+            echo 'Success Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_declined') :
+            echo 'Declined Seller Leads ' . $admin_name;
+        elseif ($page_name === 'seller_leads_withdrawn') :
+            echo 'Withdrawn Seller Leads ' . $admin_name;
         elseif ($page_name === 'users') :
             echo 'Users ' . $admin_name;
         elseif ($page_name === 'pending_withdrawals') :
