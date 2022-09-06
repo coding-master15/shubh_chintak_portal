@@ -6,6 +6,7 @@ use App\Http\Controllers\LeadDetailsController;
 use App\Http\Controllers\WithdrawalDetailsController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getwithdrawalrequests', 'LeadController@getwithdrawalrequests')->name('getwithdrawalrequests');
     Route::get('/gettestimonials', 'LeadController@gettestimonials')->name('gettestimonials');
     Route::get('/getstories', 'LeadController@getstories')->name('getstories');
+    Route::get('/getbanners', 'LeadController@getbanners')->name('getbanners');
     // $this->middleware
 
     Route::get('/analytics', function() {
@@ -62,10 +64,20 @@ Route::group(['middleware' => 'auth'] , function() {
         ];
         return view('add-success_story')->with($data);
     });
+    Route::get('/add/banner', function () {
+        $data = [
+            'category_name' => 'banners',
+            'page_name' => 'add_banner',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        return view('add-banner')->with($data);
+    });
     Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
     Route::post('/testimonial/add', [TestimonialController::class, 'addTestimonial']);
     Route::post('/story/add', [StoryController::class, 'addStory']);
+    Route::post('/banner/add', [BannerController::class, 'addBanner']);
     Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
     Route::post('/delete/story', [StoryController::class, 'deleteStory']);
     Route::post('/add/withdrawal', [WithdrawalDetailsController::class, 'updateStatus']);
@@ -1328,6 +1340,17 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_stories')->with($data);
             })->name('tables.stories');
+            Route::get('/banners', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'banners',
+                    'page_name' => 'view_banners',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_banners')->with($data);
+            })->name('tables.banners');
             Route::get('/pending_withdrawals', function() {
                 // $category_name = '';
                 $data = [

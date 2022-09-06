@@ -9,6 +9,7 @@ use App\Models\Customer;
 use App\Models\Testimonial;
 use App\Models\SuccessStory;
 use App\Models\WithdrawalRequest;
+use App\Models\Banner;
 
 class LeadController extends Controller
 {
@@ -137,6 +138,69 @@ class LeadController extends Controller
                             </div>
                             <div class="modal-body">
                               ---
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>';
+                      $btn .= '<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal'.$row->id.'">
+                        Delete
+                      </button>';
+                      $btn.='<div class="modal fade" id="exampleModal'.$row->id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel'.$row->id.'" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel'.$row->id.'">Alert</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure want to delete this item?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <form action="'.url()->action('StoryController@deleteStory', ['id' => $row->id]).'" method="POST"  >
+                                        '.csrf_field().'
+                              <button type="submit" class="edit btn btn-danger mt-2 btn-sm">Delete</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>';
+                            return $btn;
+                        })
+                    ->rawColumns(['action', 'image'])
+                    ->make(true);
+    }
+
+    public function getbanners(Request $request)
+    {
+                $data = Banner::select('*');
+                return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->editColumn('created_at', function(Banner $testimonial) {
+                        return date('d-M-Y g:i A', strtotime($testimonial->created_at));
+                    })
+                    ->editColumn('image', function(Banner $story) {
+                      return '<img src="'.$story->image.'" alt="" width="70px" height="70px" />';
+                  })
+                    ->addColumn('action', function($row){
+                        $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        View
+                      </button>';
+                        $btn.='<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">'.$row->name.'</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="'.$row->image.'" width="400px" alt="" />
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
