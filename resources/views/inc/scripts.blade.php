@@ -1158,6 +1158,7 @@
               "columns": [
                   {data: 'id', name: 'id'},
                   {data: 'image', name: 'image', orderable: false, searchable: false},
+                  {data: 'link', name: 'link'},
                   {data: 'created_at', name: 'created_at'},
                   {data: 'action', name: 'action', orderable: false, searchable: false},
               ],

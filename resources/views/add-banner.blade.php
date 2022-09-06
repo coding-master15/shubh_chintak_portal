@@ -18,6 +18,13 @@
                                         {{ csrf_field() }}
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
+                                                <span>Url: </span>
+                                                <input class="form-control" required="required" type="text" name="url" id="">
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
                                                 <span>Thumbnail: </span>
                                                 <input required="required" type="file" name="image" id="">
                                             

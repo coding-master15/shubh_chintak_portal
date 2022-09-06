@@ -11,6 +11,7 @@ class BannerController extends Controller
     public function addBanner(Request $request) {
 
         $file = $request->file('image');
+        $url = $request->input('url');
 
         if($file == null) {
             return redirect()->back()->withErrors('select image');
@@ -29,6 +30,7 @@ class BannerController extends Controller
 
         Banner::insert([
             'image' => url('/').'/uploads/'.$newname,
+            'link' => $url,
         ]);
 
         return redirect()->route('tables.banners', []);

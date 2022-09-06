@@ -13,6 +13,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Image</th>
+                                            <th>Url</th>
                                             <th>Added Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -23,6 +24,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Image</th>
+                                            <th>Url</th>
                                             <th>Added Date</th>
                                             <th class="invisible"></th>
                                         </tr>
