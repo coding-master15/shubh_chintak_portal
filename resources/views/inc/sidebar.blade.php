@@ -216,8 +216,8 @@
                             </div>
                         </a>
                         <ul class="collapse submenu list-unstyled {{ ($category_name === 'banners') ? 'show' : '' }}" id="banners" data-parent="#accordionExample">
-                            <li class="{{ ($page_name === 'add_story') ? 'active' : '' }}">
-                                <a href="/add/story"> Add Banner </a>
+                            <li class="{{ ($page_name === 'add_banner') ? 'active' : '' }}">
+                                <a href="/add/banner"> Add Banner </a>
                             </li>
                         </ul>
                         <ul class="collapse submenu list-unstyled {{ ($category_name === 'banners') ? 'show' : '' }}" id="banners" data-parent="#accordionExample">
