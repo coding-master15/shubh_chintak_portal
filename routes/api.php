@@ -47,6 +47,10 @@ Route::post('stories', function (Request $request) {
     return (new ApiController($request))->getSuccessStories();
 });
 
+Route::post('banners', function (Request $request) {
+    return (new ApiController($request))->getBanners();
+});
+
 Route::post('hotdeals', function (Request $request) {
     return (new ApiController($request))->getHotDeals();
 });

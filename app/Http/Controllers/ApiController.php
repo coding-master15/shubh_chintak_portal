@@ -8,6 +8,7 @@ use App\Models\LeadMeta;
 use App\Models\Customer;
 use App\Models\Address;
 use App\Models\Bank;
+use App\Models\Banner;
 use App\Models\SuccessStory;
 use App\Models\Testimonial;
 use App\Models\WithdrawalRequest;
@@ -37,6 +38,10 @@ class ApiController extends Controller
 
     public function getSuccessStories() {
         return SuccessStory::paginate($this->request->input('per_page') ?? 10);
+    }
+
+    public function getBanners() {
+        return Banner::paginate($this->request->input('per_page') ?? 10);
     }
 
     public function withdrawalRequests() {
