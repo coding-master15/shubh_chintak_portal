@@ -288,12 +288,22 @@
                                                 <input name="title" class="form-control" value="{{ $lead->title }}">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-check pl-0">
-                                                <div class="custom-control custom-checkbox checkbox-info">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-checkbox checkbox-info pt-4">
                                                     <input name="is_hotdeal" <?php echo $lead->is_hotdeal == 1 ? 'checked="checked"' : '' ?> type="checkbox" class="custom-control-input" id="gridCheck">
                                                     <label class="custom-control-label" for="gridCheck">Add to Hot Deal</label>
                                                 </div>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <span>Min Profit: </span>
+                                                <h4>{{ $lead->min_profit }}</h4>
+                                                <input name="min_profit" class="form-control" value="{{ $lead->min_profit }}">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <span>Max Profit: </span>
+                                                <h4>{{ $lead->max_profit }}</h4>
+                                                <input name="max_profit" class="form-control" value="{{ $lead->max_profit }}">
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary mt-3" style="float: right;">Update</button>

@@ -139,11 +139,15 @@ class LeadDetailsController extends Controller
     {
        $lead = Lead::find($request->input('id'));
        $status = $request->input('status') ?? 'confirming';
+       $min_profit = $request->input('min_profit') ?? '';
+       $max_profit = $request->input('max_profit') ?? '';
        $profit = $request->input('profit') ?? '';
        $title = $request->input('title') ?? '';
        $is_hotdeal = $request->input('is_hotdeal') == 'on' ? 1 : 0;
        $lead->status = $status;
        $lead->profit = $profit;
+       $lead->min_profit = $min_profit;
+       $lead->max_profit = $max_profit;
        $lead->title = $title;
        $lead->is_hotdeal = $is_hotdeal;
        $lead->save();
