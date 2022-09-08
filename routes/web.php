@@ -7,6 +7,7 @@ use App\Http\Controllers\WithdrawalDetailsController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
     Route::post('/testimonial/add', [TestimonialController::class, 'addTestimonial']);
     Route::post('/story/add', [StoryController::class, 'addStory']);
+    Route::post('/notification/add', [NotificationController::class, 'sendNotification']);
     Route::post('/banner/add', [BannerController::class, 'addBanner']);
     Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
     Route::post('/delete/story', [StoryController::class, 'deleteStory']);

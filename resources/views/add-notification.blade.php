@@ -14,13 +14,17 @@
                                     </div>
                                 </div>
                                 <div class="widget-content widget-content-area">
-                                    <form action="{{ url()->action('BannerController@addBanner', []) }}" method="POST" enctype="multipart/form-data" >
+                                    <form action="{{ url()->action('NotificationController@sendNotification', []) }}" method="POST" enctype="multipart/form-data" >
                                         {{ csrf_field() }}
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <span>Url: </span>
-                                                <input class="form-control" required="required" type="text" name="url" id="">
+                                                <span>Title: </span>
+                                                <input class="form-control" required="required" type="text" name="title" id="">
                                             
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                            <span>Message: </span>
+                                                <textarea class="form-control" required="required" name="message" id="" cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary mt-3" style="float: right;">Add</button>
