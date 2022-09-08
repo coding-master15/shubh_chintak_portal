@@ -184,7 +184,7 @@ class ApiController extends Controller
     }
 
     public function setToken() {
-        $customer = Customer::where('user_id', $this->request->input('user_id'))->first();
+        $customer = Customer::find($this->request->input('user_id'));
         if($customer) {
             $customer->token = $this->request->input('token');
             $customer->save();
