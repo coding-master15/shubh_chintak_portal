@@ -12,10 +12,10 @@ class NotificationController extends Controller
 
         $title = $request->input('title');
         $message = $request->input('message');
-        $url = 'https://fcm.googleapis.com/v1/projects/shubh-chintak-c58ab/messages:send';
+        $url = 'https://fcm.googleapis.com/fcm/send';
 
         $fields = array (
-                'topic' => 'offers',
+                'to' => '/topics/offers',
                 'notification' => array (
                         "title" => $title,
                         "body" => $message,
