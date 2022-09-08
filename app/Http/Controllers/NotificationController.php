@@ -24,7 +24,7 @@ class NotificationController extends Controller
         $fields = json_encode ( $fields );
 
         $headers = array (
-                'Authorization: key=' . "AIzaSyAdsimUhBeg3mH1H9OL9JZP6ujFimIlVc0",
+                'Authorization: key=' . "AAAANO67b58:APA91bHprWIp8Q4Bp-riu0bfH7mBCv-ja1YTEtRlmPWcOf5iWTUwwuX-U328kp2w-_lRC3z31GSZXuumV-4oTEsOX6WgQ_imrxLYh4g82vcInLRS7sxtmQSlLRfHGg6N8ZojjTQMvW-x",
                 'Content-Type: application/json'
         );
 
