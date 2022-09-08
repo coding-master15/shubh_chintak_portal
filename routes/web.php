@@ -73,6 +73,35 @@ Route::group(['middleware' => 'auth'] , function() {
         ];
         return view('add-banner')->with($data);
     });
+    Route::get('/send_notification', function () {
+        $data = [
+            'category_name' => 'notification',
+            'page_name' => 'notification',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        return view('add-notification')->with($data);
+    });
+    Route::get('/add/buyer/lead', function () {
+        $data = [
+            'category_name' => 'add_lead',
+            'page_name' => 'add_lead',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+            'type' => 'buyer',
+        ];
+        return view('add-lead')->with($data);
+    });
+    Route::get('/add/seller/lead', function () {
+        $data = [
+            'category_name' => 'add_lead',
+            'page_name' => 'add_lead',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+            'type' => 'seller',
+        ];
+        return view('add-lead')->with($data);
+    });
     Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
     Route::post('/testimonial/add', [TestimonialController::class, 'addTestimonial']);

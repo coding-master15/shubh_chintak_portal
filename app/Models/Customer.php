@@ -21,6 +21,7 @@ class Customer extends Model
         'phone',
         'avatar',
         'email',
+        'token',
         'status',
     ];
 

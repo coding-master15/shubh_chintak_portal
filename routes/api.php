@@ -39,6 +39,10 @@ Route::post('leads', function (Request $request) {
     return (new ApiController($request))->getLeads();
 });
 
+Route::post('set/token', function (Request $request) {
+    return (new ApiController($request))->setToken();
+});
+
 Route::post('testimonials', function (Request $request) {
     return (new ApiController($request))->getTestimonials();
 });

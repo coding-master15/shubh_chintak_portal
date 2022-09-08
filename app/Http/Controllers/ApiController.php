@@ -183,6 +183,15 @@ class ApiController extends Controller
         return $address;
     }
 
+    public function setToken() {
+        $customer = Customer::where('user_id', $this->request->input('user_id'))->first();
+        if($customer) {
+            $customer->token = $this->request->input('token');
+            $customer->save();
+        }
+        return $address;
+    }
+
     public function saveBankDetails() {
         
         $bank = Bank::where('user_id', $this->request->input('user_id'))->first();
