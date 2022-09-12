@@ -152,6 +152,32 @@ class LeadDetailsController extends Controller
        $lead->is_hotdeal = $is_hotdeal;
        $lead->save();
 
+        $url = 'https://fcm.googleapis.com/fcm/send';
+
+        $fields = array (
+                'to' => '/topics/offers',
+                'notification' => array (
+                        "title" => 'Lead Status',
+                        "body" => 'Lead #'.$lead->code.' status updated to '.$status,
+                )
+        );
+        $fields = json_encode ( $fields );
+
+        $headers = array (
+                'Authorization: key=' . "AAAANO67b58:APA91bHprWIp8Q4Bp-riu0bfH7mBCv-ja1YTEtRlmPWcOf5iWTUwwuX-U328kp2w-_lRC3z31GSZXuumV-4oTEsOX6WgQ_imrxLYh4g82vcInLRS7sxtmQSlLRfHGg6N8ZojjTQMvW-x",
+                'Content-Type: application/json'
+        );
+
+        $ch = curl_init ();
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_POST, true );
+        curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+
+        $result = curl_exec ( $ch );
+        curl_close ( $ch );
+
        return redirect()->back()->withSuccess('Updated');
 
     }
