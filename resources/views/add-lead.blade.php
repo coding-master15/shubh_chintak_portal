@@ -27,7 +27,7 @@
                                                         <option value="For Self">For Self</option>
                                                         <option value="For Family & Relatives">For Family & Relatives</option>
                                                         <option value="For Friends">For Friends</option>
-                                                        <option value="General Reference">Neighbors</option>
+                                                        <option value="For Neighbors">For Neighbors</option>
                                                         <option value="General Reference">Others</option>
                                                     </select>
                                                 </div>
