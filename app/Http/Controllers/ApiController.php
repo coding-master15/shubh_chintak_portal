@@ -190,7 +190,7 @@ class ApiController extends Controller
             $customer->token = $this->request->input('token');
             $customer->save();
         }
-        return $address;
+        return $customer;
     }
     
 
