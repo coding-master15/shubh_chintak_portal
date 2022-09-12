@@ -155,4 +155,61 @@ class LeadDetailsController extends Controller
        return redirect()->back()->withSuccess('Updated');
 
     }
+
+    public function addLead() {
+        $lead = \DB::table('leads')->insertGetId([
+          'user_id' => 2,
+          'name' => $this->request->input('name'),
+          'contact_ref' => $this->request->input('contact_ref'),
+          'contact_one' => $this->request->input('contact_one'),
+          'contact_two' => $this->request->input('contact_two'),
+          'status' => $this->request->input('status'),
+          'product_type' => $this->request->input('product_type'),
+          'service_type' => $this->request->input('service_type'),
+          'type' => $this->request->input('type'),
+          'budget' => $this->request->input('budget'),
+          'area' => $this->request->input('area'),
+          'city' => $this->request->input('city'),
+          'pincode' => $this->request->input('pincode'),
+          'description' => $this->request->input('description'),
+      ]);
+      if($this->request->input('type') == 'seller') {
+          foreach($this->request->all() as $key => $value) {
+              if(!in_array($key, [
+                  'user_id',
+                  'name',
+                  'contact_one',
+                  'contact_two',
+                  'status',
+                  'product_type',
+                  'service_type',
+                  'type',
+                  'budget',
+                  'area',
+                  'city',
+                  'pincode',
+                  'description',
+              ])) {
+                  if($value != '') {
+                      LeadMeta::insert([
+                          'key' => $key,
+                          'value' => $value,
+                          'lead_id' => $lead,
+                      ]);
+                  }
+              }
+          }
+      }
+      $leada = Lead::find($lead);
+      $lastId = strval($lead);
+      $code = '';
+      for($i = 0; $i < (10-strlen($lastId)); $i++) {
+          $code.='0';
+      }
+      $code.=$lastId;
+      $leada->code = $code;
+      $leada->save();
+      return $leada;
+    }
+
 }

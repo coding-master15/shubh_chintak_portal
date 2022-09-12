@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth'] , function() {
     });
     Route::get('/add/buyer/lead', function () {
         $data = [
-            'category_name' => 'add_lead',
+            'category_name' => 'buyer_leads',
             'page_name' => 'add_lead',
             'has_scrollspy' => 0,
             'scrollspy_offset' => '',
@@ -95,7 +95,7 @@ Route::group(['middleware' => 'auth'] , function() {
     });
     Route::get('/add/seller/lead', function () {
         $data = [
-            'category_name' => 'add_lead',
+            'category_name' => 'seller_leads',
             'page_name' => 'add_lead',
             'has_scrollspy' => 0,
             'scrollspy_offset' => '',
@@ -105,6 +105,7 @@ Route::group(['middleware' => 'auth'] , function() {
     });
     Route::get('/withdrawal-request/{id}', [WithdrawalDetailsController::class, 'index']);
     Route::post('/lead/update', [LeadDetailsController::class, 'updateStatus']);
+    Route::post('/lead/add', [LeadDetailsController::class, 'addLead']);
     Route::post('/testimonial/add', [TestimonialController::class, 'addTestimonial']);
     Route::post('/story/add', [StoryController::class, 'addStory']);
     Route::post('/notification/add', [NotificationController::class, 'sendNotification']);

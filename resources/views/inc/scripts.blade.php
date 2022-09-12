@@ -17,7 +17,7 @@
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 
 
-@if (($category_name == 'buyer_leads' || $category_name == 'seller_leads'))
+@if (($category_name == 'buyer_leads' || $category_name == 'seller_leads') && ($page_name != 'add_lead'))
 {{-- Table Datatable Order Sorting --}}
       <script src="{{asset('plugins/table/datatable/datatables.js')}}"></script>
       <script>        

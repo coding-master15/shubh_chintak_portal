@@ -9,6 +9,7 @@ use App\Models\Customer;
 use App\Models\Address;
 use App\Models\Bank;
 use App\Models\Banner;
+use App\Models\BannerClick;
 use App\Models\SuccessStory;
 use App\Models\Testimonial;
 use App\Models\WithdrawalRequest;
@@ -191,6 +192,7 @@ class ApiController extends Controller
         }
         return $address;
     }
+    
 
     public function saveBankDetails() {
         
@@ -209,6 +211,14 @@ class ApiController extends Controller
             $bank = Bank::find($bankId);
         }
         return $bank;
+    }
+
+    public function addBannerClick() {
+            $bankId = BannerClick::insert([
+                'user_id' => $this->request->input('user_id'),
+                'banner_id' => $this->request->input('banner_id'),
+            ]);
+        return $bankId;
     }
 
     public function getBankDetails() {

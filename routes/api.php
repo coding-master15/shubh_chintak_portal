@@ -31,6 +31,10 @@ Route::post('request/withdraw', function (Request $request) {
     return (new ApiController($request))->requestWithdrawal();
 });
 
+Route::post('click/banner', function (Request $request) {
+    return (new ApiController($request))->addBannerClick();
+});
+
 Route::post('withdrawal/requests', function (Request $request) {
     return (new ApiController($request))->withdrawalRequests();
 });
