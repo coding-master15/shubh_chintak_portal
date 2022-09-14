@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lead;
+use App\Models\Customer;
 use App\Models\LeadMeta;
 
 class LeadDetailsController extends Controller
@@ -152,10 +153,12 @@ class LeadDetailsController extends Controller
        $lead->is_hotdeal = $is_hotdeal;
        $lead->save();
 
+       $user = Customer::find($lead->user_id);
+
         $url = 'https://fcm.googleapis.com/fcm/send';
 
         $fields = array (
-                'to' => '/topics/offers',
+                'to' => $user->token,
                 'notification' => array (
                         "title" => 'Lead Status',
                         "body" => 'Lead #'.$lead->code.' status updated to '.$status,
