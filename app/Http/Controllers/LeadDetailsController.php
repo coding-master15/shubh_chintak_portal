@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Customer;
+use App\Models\Notification;
 use App\Models\LeadMeta;
 
 class LeadDetailsController extends Controller
@@ -179,6 +180,12 @@ class LeadDetailsController extends Controller
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
 
         $result = curl_exec ( $ch );
+        Notification::insert([
+          'user_id' => $lead->user_id,
+          'title' => 'Lead Status',
+          'message' => 'Lead #'.$lead->code.' status updated to '.$status,
+          'status' => 'unread'
+        ]);
         curl_close ( $ch );
 
        return redirect()->back()->withSuccess('Updated');

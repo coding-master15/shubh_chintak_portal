@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Notification;
 
 class NotificationController extends Controller
 {
@@ -36,6 +37,12 @@ class NotificationController extends Controller
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
 
         $result = curl_exec ( $ch );
+        Notification::insert([
+                'user_id' => 0,
+                "title" => $title,
+                'message' => $message,
+                'status' => 'unread'
+              ]);
         echo $result;
         curl_close ( $ch );
     }

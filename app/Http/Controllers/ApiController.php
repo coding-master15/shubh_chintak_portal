@@ -12,6 +12,7 @@ use App\Models\Banner;
 use App\Models\BannerClick;
 use App\Models\SuccessStory;
 use App\Models\Testimonial;
+use App\Models\Notification;
 use App\Models\WithdrawalRequest;
 
 class ApiController extends Controller
@@ -39,6 +40,10 @@ class ApiController extends Controller
 
     public function getSuccessStories() {
         return SuccessStory::paginate($this->request->input('per_page') ?? 10);
+    }
+
+    public function getNotifications() {
+        return Notification::where('user_id', $this->request->input('user_id'))->where('user_id', 0)->paginate($this->request->input('per_page') ?? 10);
     }
 
     public function getBanners() {

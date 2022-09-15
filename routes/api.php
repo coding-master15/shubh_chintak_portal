@@ -43,6 +43,10 @@ Route::post('leads', function (Request $request) {
     return (new ApiController($request))->getLeads();
 });
 
+Route::post('notifications', function (Request $request) {
+    return (new ApiController($request))->getNotifications();
+});
+
 Route::post('set/token', function (Request $request) {
     return (new ApiController($request))->setToken();
 });
