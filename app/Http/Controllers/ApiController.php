@@ -145,7 +145,7 @@ class ApiController extends Controller
     }
 
     public function register() {
-        $customer = Customer::insert([
+        $value = Customer::insert([
             'fname' =>  $this->request->input('fname'),
             'lname' =>  $this->request->input('lname'),
             'avatar' =>  $this->request->input('avatar'),
@@ -154,9 +154,9 @@ class ApiController extends Controller
             'phone_code' =>  $this->request->input('phone_code'),
         ]);
 
-        $value = Customer::find($customer);
+        $customer = Customer::find($value);
 
-        $data = array('customer'=> $value);
+        $data = array('customer'=> $customer);
         \Mail::send('emails.register', $data, function($message) use ($customer) {
             $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Thanks for Joining Shubh Chintak');
