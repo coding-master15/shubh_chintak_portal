@@ -158,7 +158,7 @@ class ApiController extends Controller
 
         $data = array('customer'=> $value);
         \Mail::send('emails.register', $data, function($message) use ($customer) {
-            $message->to($value->email, $value->fname.' '.$value->lname)->subject
+            $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Thanks for Joining Shubh Chintak');
             $message->from('theshubhchintaq@gmail.com','Shubh Chintak');
         });
