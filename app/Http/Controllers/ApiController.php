@@ -163,7 +163,7 @@ class ApiController extends Controller
             $message->from('theshubhchintaq@gmail.com','Shubh Chintak');
         });
 
-        return $value;
+        return $customer;
     }
 
     public function saveAddress() {
