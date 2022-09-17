@@ -145,7 +145,7 @@ class ApiController extends Controller
     }
 
     public function register() {
-        $value = Customer::insert([
+        $value = Customer::insertGetId([
             'fname' =>  $this->request->input('fname'),
             'lname' =>  $this->request->input('lname'),
             'avatar' =>  $this->request->input('avatar'),
