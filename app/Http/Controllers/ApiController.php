@@ -83,6 +83,31 @@ class ApiController extends Controller
         return $data;
     }
 
+    public function getTypeShortName($type) {
+        switch ($type) {
+          case 'buy_house':
+            return 'House';
+          case 'rent_house':
+            return 'House';
+          case 'loan':
+            return 'Loan';
+          case 'insurance':
+            return 'Insurance';
+          case 'vehicles':
+            return 'Vehicle';
+          case 'mobiles':
+            return 'Mobile';
+          case 'electronics':
+            return 'Electronic';
+          case 'events':
+            return 'Event';
+          case 'accounting':
+            return 'Service';
+          default:
+            return '';
+        }
+      }
+
     public function addLead() {
         
         $leadIID = \DB::table('leads')->insertGetId([
@@ -140,8 +165,10 @@ class ApiController extends Controller
 
         $customer = Customer::find($this->request->input('user_id'));
 
-        $data = array('customer'=> $customer, 'lead' => $lead);
-        \Mail::send('emails.lead', $data, function($message) use ($customer, $lead) {
+        $type_name = $this->getTypeShortName($lead->product_type);
+
+        $data = array('customer'=> $customer, 'lead' => $lead, 'type_name' => $type_name);
+        \Mail::send('emails.lead', $data, function($message) use ($customer, $lead, $type_name) {
             $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Lead Added Successfully!');
             $message->from('theshubhchintaq@gmail.com','Shubh Chintak');
