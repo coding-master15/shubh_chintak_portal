@@ -141,7 +141,7 @@ class ApiController extends Controller
         $customer = Customer::find($this->request->input('user_id'));
 
         $data = array('customer'=> $customer, 'lead' => $lead);
-        \Mail::send('emails.register', $data, function($message) use ($customer, $lead) {
+        \Mail::send('emails.lead', $data, function($message) use ($customer, $lead) {
             $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Lead Added Successfully!');
             $message->from('theshubhchintaq@gmail.com','Shubh Chintak');
