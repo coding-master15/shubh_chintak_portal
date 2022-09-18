@@ -43,7 +43,7 @@ class ApiController extends Controller
     }
 
     public function getNotifications() {
-        return Notification::where('user_id', $this->request->input('user_id'))->where('user_id', 0)->paginate($this->request->input('per_page') ?? 10);
+        return Notification::whereIn('user_id', array($this->request->input('user_id'), 0))->paginate($this->request->input('per_page') ?? 10);
     }
 
     public function getBanners() {
