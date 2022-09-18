@@ -85,7 +85,7 @@ class ApiController extends Controller
 
     public function addLead() {
         
-        $lead = \DB::table('leads')->insertGetId([
+        $leadIID = \DB::table('leads')->insertGetId([
             'user_id' => $this->request->input('user_id'),
             'name' => $this->request->input('name'),
             'contact_ref' => $this->request->input('contact_ref'),
@@ -122,22 +122,32 @@ class ApiController extends Controller
                         LeadMeta::insert([
                             'key' => $key,
                             'value' => $value,
-                            'lead_id' => $lead,
+                            'lead_id' => $leadIID,
                         ]);
                     }
                 }
             }
         }
-        $leada = Lead::find($lead);
-        $lastId = strval($lead);
+        $lead = Lead::find($leadIID);
+        $lastId = strval($leadIID);
         $code = '';
         for($i = 0; $i < (10-strlen($lastId)); $i++) {
             $code.='0';
         }
         $code.=$lastId;
-        $leada->code = $code;
-        $leada->save();
-        return $leada;
+        $lead->code = $code;
+        $lead->save();
+
+        $customer = Customer::find($this->request->input('user_id'));
+
+        $data = array('customer'=> $customer, 'lead' => $lead);
+        \Mail::send('emails.register', $data, function($message) use ($customer, $lead) {
+            $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
+                ('Lead Added Successfully!');
+            $message->from('theshubhchintaq@gmail.com','Shubh Chintak');
+        });
+
+        return $lead;
     }
 
     public function login() {
