@@ -194,11 +194,16 @@ class ApiController extends Controller
         $customer = Customer::find($value);
 
         $data = array('customer'=> $customer);
+
+        try {
         \Mail::send('emails.register', $data, function($message) use ($customer) {
             $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Thanks for Joining Shubh Chintak');
             $message->from('theshubhchintaq@gmail.com','Shubh Chintak');
         });
+    } catch (\Exception $e) {
+        return $e->toString();
+    }
 
         return $customer;
     }
