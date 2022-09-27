@@ -51,6 +51,10 @@ Route::post('set/token', function (Request $request) {
     return (new ApiController($request))->setToken();
 });
 
+Route::post('get/token', function (Request $request) {
+    return (new ApiController($request))->getToken();
+});
+
 Route::post('testimonials', function (Request $request) {
     return (new ApiController($request))->getTestimonials();
 });

@@ -171,10 +171,15 @@ class ApiController extends Controller
         \Mail::send('emails.lead', $data, function($message) use ($customer, $lead, $type_name) {
             $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Lead Added Successfully!');
-            $message->from('support@theshubhchintak.com','Shubh Chintak');
+            $message->from('support@theshubhchintaq.com','Shubh Chintak');
         });
 
         return $lead;
+    }
+
+    public function getToken() {
+        $value = Customer::find($this->request->input('user_id'));
+        return $value->token;
     }
 
     public function login() {
@@ -199,7 +204,7 @@ class ApiController extends Controller
         \Mail::send('emails.register', $data, function($message) use ($customer) {
             $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
                 ('Thanks for Joining Shubh Chintak');
-            $message->from('support@theshubhchintak.com','Shubh Chintak');
+            $message->from('support@theshubhchintaq.com','Shubh Chintak');
         });
     } catch (\Exception $e) {
         return $e->toString();

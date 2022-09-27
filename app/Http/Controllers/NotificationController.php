@@ -45,5 +45,7 @@ class NotificationController extends Controller
               ]);
         echo $result;
         curl_close ( $ch );
+
+        return redirect()->back()->withSuccess('Notification Sent');
     }
 }
