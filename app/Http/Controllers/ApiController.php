@@ -7,6 +7,7 @@ use App\Models\Lead;
 use App\Models\LeadMeta;
 use App\Models\Customer;
 use App\Models\Address;
+use App\Models\Submission;
 use App\Models\Bank;
 use App\Models\Banner;
 use App\Models\BannerClick;
@@ -211,6 +212,34 @@ class ApiController extends Controller
     }
 
         return $customer;
+    }
+
+    public function saveSubmission() {
+        $value = Submission::insertGetId([
+            'user_id' =>  $this->request->input('user_id'),
+            'banner_id' =>  $this->request->input('banner_id'),
+            'name' =>  $this->request->input('name'),
+            'email' =>  $this->request->input('email'),
+            'phone' =>  $this->request->input('phone'),
+            'occupation' =>  $this->request->input('occupation'),
+            'property' =>  $this->request->input('property'),
+        ]);
+
+        $submission = Submission::find($value);
+
+        $data = array('submission'=> $submission);
+
+    //     try {
+    //     \Mail::send('emails.register', $data, function($message) use ($submission) {
+    //         $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
+    //             ('Thanks for Joining Shubh Chintak');
+    //         $message->from('support@theshubhchintaq.com','Shubh Chintak');
+    //     });
+    // } catch (\Exception $e) {
+    //     return $e->toString();
+    // }
+
+        return $submission;
     }
 
     public function saveAddress() {

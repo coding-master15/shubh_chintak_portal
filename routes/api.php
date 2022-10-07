@@ -87,6 +87,10 @@ Route::post('bank/save', function (Request $request) {
     return (new ApiController($request))->saveBankDetails();
 });
 
+Route::post('form/save', function (Request $request) {
+    return (new ApiController($request))->saveSubmission();
+});
+
 Route::post('address/get', function (Request $request) {
     return (new ApiController($request))->getAddress();
 });
