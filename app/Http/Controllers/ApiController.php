@@ -75,7 +75,7 @@ class ApiController extends Controller
     }
 
     public function getHotDeals() {
-        $data = Lead::where('is_hotdeal', 1)->orderBy(DB::raw("3959 * acos( cos( radians({$request->input('lat')}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(-{$request->input('lon')}) ) + sin( radians({$request->input('lat')}) ) * sin(radians(latitude)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
+        $data = Lead::where('is_hotdeal', 1)->orderBy(DB::raw("3959 * acos( cos( radians({$request->input('lat')}) ) * cos( radians( lat ) ) * cos( radians( long ) - radians(-{$request->input('long')}) ) + sin( radians({$request->input('lat')}) ) * sin(radians(lat)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
         foreach($data as $lead) {
             if($lead->type == 'seller') {
                 $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
