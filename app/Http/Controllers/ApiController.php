@@ -75,7 +75,7 @@ class ApiController extends Controller
     }
 
     public function getHotDeals() {
-        $data = \DB::table("leads")->where('is_hotdeal', 1)->orderBy(\DB::raw("3959 * acos( cos( radians({$this->request->input('lat')}) ) * cos( radians( lat ) ) * cos( radians( long ) - radians(-{$this->request->input('long')}) ) + sin( radians({$this->request->input('lat')}) ) * sin(radians(lat)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
+        $data = \DB::table("leads")->where('is_hotdeal', 1)->orderBy(\DB::raw("3959 * acos( cos( radians({$this->request->input('lat')}) ) * cos( radians( lat ) ) * cos( radians( lon ) - radians(-{$this->request->input('long')}) ) + sin( radians({$this->request->input('lat')}) ) * sin(radians(lat)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
         foreach($data as $lead) {
             if($lead->type == 'seller') {
                 $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
@@ -126,7 +126,7 @@ class ApiController extends Controller
             'area' => $this->request->input('area'),
             'city' => $this->request->input('city'),
             'lat' => $this->request->input('lat'),
-            'long' => $this->request->input('long'),
+            'lon' => $this->request->input('long'),
             'pincode' => $this->request->input('pincode'),
             'description' => $this->request->input('description'),
         ]);

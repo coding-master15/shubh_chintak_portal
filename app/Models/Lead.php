@@ -30,7 +30,7 @@ class Lead extends Model
         'area',
         'city',
         'lat',
-        'long',
+        'lon',
         'pincode',
         'description',
         'profit',
