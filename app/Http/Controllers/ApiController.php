@@ -75,7 +75,7 @@ class ApiController extends Controller
     }
 
     public function getHotDeals() {
-        $data = Lead::where('is_hotdeal', 1)->paginate($this->request->input('per_page') ?? 10);
+        $data = Lead::where('is_hotdeal', 1)->orderBy(DB::raw("3959 * acos( cos( radians({$request->input('lat')}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(-{$request->input('lon')}) ) + sin( radians({$request->input('lat')}) ) * sin(radians(latitude)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
         foreach($data as $lead) {
             if($lead->type == 'seller') {
                 $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
@@ -109,7 +109,8 @@ class ApiController extends Controller
         }
       }
 
-    public function addLead() {
+    
+      public function addLead() {
         
         $leadIID = \DB::table('leads')->insertGetId([
             'user_id' => $this->request->input('user_id'),
@@ -124,6 +125,8 @@ class ApiController extends Controller
             'budget' => $this->request->input('budget'),
             'area' => $this->request->input('area'),
             'city' => $this->request->input('city'),
+            'lat' => $this->request->input('lat'),
+            'long' => $this->request->input('long'),
             'pincode' => $this->request->input('pincode'),
             'description' => $this->request->input('description'),
         ]);
@@ -141,6 +144,8 @@ class ApiController extends Controller
                     'budget',
                     'area',
                     'city',
+                    'lat',
+                    'long',
                     'pincode',
                     'description',
                 ])) {

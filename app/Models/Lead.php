@@ -29,6 +29,8 @@ class Lead extends Model
         'budget',
         'area',
         'city',
+        'lat',
+        'long',
         'pincode',
         'description',
         'profit',
