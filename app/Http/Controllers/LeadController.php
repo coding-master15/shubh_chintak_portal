@@ -45,9 +45,53 @@ class LeadController extends Controller
                         return '<img src="' . $customer->avatar . '" alt="" width="60" height="60" />';
                     })
                     ->addColumn('action', function($row){
-                        $btn = '<a href="/user/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
-                            return $btn;
-                        })
+                      $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                      View
+                    </button>';
+                      $btn.='<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">'.$row->fname.' '.$row->lname.'</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+                    $btn .= '<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal'.$row->id.'">
+                      Delete
+                    </button>';
+                    $btn.='<div class="modal fade" id="exampleModal'.$row->id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel'.$row->id.'" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel2">Alert</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure want to delete this item?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <form action="'.url()->action('TestimonialController@deleteUser', ['id' => $row->id]).'" method="POST"  >
+                                      '.csrf_field().'
+                            <button type="submit" class="edit btn btn-danger mt-2 btn-sm">Delete</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+                          return $btn;
+                      })
                     ->rawColumns(['action', 'avatar'])
                     ->make(true);
     }

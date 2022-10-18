@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Testimonial;
+use App\Models\Customer;
 
 use Illuminate\Http\Request;
 
@@ -22,5 +23,11 @@ class TestimonialController extends Controller
         $data = Testimonial::find($request->input('id'));
         $data->delete();
         return redirect()->back()->withSuccess('Updated');
+    }
+
+    public function deleteUser(Request $request) {
+        $data = Customer::find($request->input('id'));
+        $data->delete();
+        return redirect()->back()->withSuccess('Deleted');
     }
 }

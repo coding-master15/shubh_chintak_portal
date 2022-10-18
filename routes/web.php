@@ -111,6 +111,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::post('/notification/add', [NotificationController::class, 'sendNotification']);
     Route::post('/banner/add', [BannerController::class, 'addBanner']);
     Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
+    Route::post('/delete/user', [TestimonialController::class, 'deleteUser']);
     Route::post('/delete/story', [StoryController::class, 'deleteStory']);
     Route::post('/add/withdrawal', [WithdrawalDetailsController::class, 'updateStatus']);
     
