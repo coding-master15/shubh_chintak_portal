@@ -207,14 +207,14 @@ class ApiController extends Controller
         $data = array('customer'=> $customer);
 
         try {
-        \Mail::send('emails.register', $data, function($message) use ($customer) {
-            $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
-                ('Thanks for Joining Shubh Chintak');
-            $message->from('support@theshubhchintaq.com','Shubh Chintak');
-        });
-    } catch (\Exception $e) {
-        return $e->toString();
-    }
+            \Mail::send('emails.register', $data, function($message) use ($customer) {
+                $message->to($customer->email, $customer->fname.' '.$customer->lname)->subject
+                    ('Thanks for Joining Shubh Chintak');
+                $message->from('support@theshubhchintaq.com','Shubh Chintak');
+            });
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
 
         return $customer;
     }
