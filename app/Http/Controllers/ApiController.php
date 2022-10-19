@@ -213,7 +213,7 @@ class ApiController extends Controller
                 $message->from('support@theshubhchintaq.com','Shubh Chintak');
             });
         } catch (\Exception $e) {
-            return $e->getMessage();
+            
         }
 
         return $customer;
