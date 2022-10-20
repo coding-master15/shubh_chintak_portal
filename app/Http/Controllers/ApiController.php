@@ -204,6 +204,7 @@ class ApiController extends Controller
             'avatar' =>  $this->request->input('avatar'),
             'email' =>  $this->request->input('email'),
             'phone' =>  $this->request->input('phone'),
+            'status' =>  1,
             'phone_code' =>  $this->request->input('phone_code'),
         ]);
 
