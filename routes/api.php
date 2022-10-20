@@ -75,6 +75,10 @@ Route::post('lead_by_id', function (Request $request) {
     return (new ApiController($request))->getLeadById();
 });
 
+Route::post('user_by_id', function (Request $request) {
+    return (new ApiController($request))->getUserById();
+});
+
 Route::post('leads/add', function (Request $request) {
     return (new ApiController($request))->addLead();
 });

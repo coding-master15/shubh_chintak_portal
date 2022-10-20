@@ -74,6 +74,11 @@ class ApiController extends Controller
         return $lead;
     }
 
+    public function getUserById() {
+        $user = Customer::find($this->request->input('id'));
+        return $user;
+    }
+
     public function getHotDeals() {
         $data = \DB::table("leads")->where('is_hotdeal', 1)->where('status', '!=', 'success')->where('status', '!=', 'declined')->orderBy(\DB::raw("3959 * acos( cos( radians({$this->request->input('lat')}) ) * cos( radians( lat ) ) * cos( radians( lon ) - radians(-{$this->request->input('long')}) ) + sin( radians({$this->request->input('lat')}) ) * sin(radians(lat)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
         foreach($data as $lead) {
