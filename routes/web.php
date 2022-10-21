@@ -28,6 +28,7 @@ use App\Http\Controllers\NotificationController;
 Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getleads', 'LeadController@getleads')->name('getleads');
     Route::get('/getusers', 'LeadController@getusers')->name('getusers');
+    Route::get('/getnotifications', 'LeadController@getnotifications')->name('getnotifications');
     Route::get('/getwithdrawalrequests', 'LeadController@getwithdrawalrequests')->name('getwithdrawalrequests');
     Route::get('/gettestimonials', 'LeadController@gettestimonials')->name('gettestimonials');
     Route::get('/getstories', 'LeadController@getstories')->name('getstories');
@@ -112,6 +113,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::post('/banner/add', [BannerController::class, 'addBanner']);
     Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
     Route::post('/delete/user', [TestimonialController::class, 'deleteUser']);
+    Route::post('/delete/notification', [TestimonialController::class, 'deleteNotification']);
     Route::post('/delete/story', [StoryController::class, 'deleteStory']);
     Route::post('/add/withdrawal', [WithdrawalDetailsController::class, 'updateStatus']);
     
@@ -1350,6 +1352,17 @@ Route::group(['middleware' => 'auth'] , function() {
                     ];
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_users')->with($data);
+            });
+            Route::get('/notifications', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'notifications',
+                    'page_name' => 'notifications',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_notifications')->with($data);
             });
             Route::get('/testimonials', function() {
                 // $category_name = '';
