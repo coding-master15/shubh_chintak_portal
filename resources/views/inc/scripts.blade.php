@@ -239,23 +239,6 @@
       <script src="{{asset('assets/js/components/session-timeout/custom-bootstrap_session_timeout.js')}}"></script>
       @break
 
-    @case('notifications')
-      {{-- Compoents Snackbar --}}
-      <script src="{{asset('assets/js/scrollspyNav.js')}}"></script>
-      <script src="{{asset('plugins/notification/snackbar/snackbar.min.js')}}"></script>
-      <script src="{{asset('assets/js/components/notification/custom-snackbar.js')}}"></script>
-      <script>
-          // Get the Toast button
-          var toastButton = document.getElementById("toast-btn");
-          // Get the Toast element
-          var toastElement = document.getElementsByClassName("toast")[0];
-
-          toastButton.onclick = function() {
-              $('.toast').toast('show');
-          }
-      </script>
-      @break
-
     @case('sweet_alerts')
       {{-- Components Sweetalerts --}}
       <script src="{{asset('assets/js/scrollspyNav.js')}}"></script>

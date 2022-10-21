@@ -479,18 +479,6 @@ Route::group(['middleware' => 'auth'] , function() {
             // $pageName = 'session_timeout';
             return view('pages.components.component_session_timeout')->with($data);
         });
-        Route::get('/notifications', function() {
-            // $category_name = '';
-            $data = [
-                'category_name' => 'components',
-                'page_name' => 'notifications',
-                'has_scrollspy' => 1,
-                'scrollspy_offset' => 100,
-
-            ];
-            // $pageName = 'snackbar';
-            return view('pages.components.component_snackbar')->with($data);
-        });
         Route::get('/sweet_alerts', function() {
             // $category_name = '';
             $data = [
