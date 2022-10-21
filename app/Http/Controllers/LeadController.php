@@ -116,7 +116,7 @@ class LeadController extends Controller
                             </button>
                           </div>
                           <div class="modal-body">
-                            
+                          '.$row->message.'
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
