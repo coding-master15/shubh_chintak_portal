@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::get('/getleads', 'LeadController@getleads')->name('getleads');
     Route::get('/getusers', 'LeadController@getusers')->name('getusers');
     Route::get('/getnotifications', 'LeadController@getnotifications')->name('getnotifications');
+    Route::get('/getsubmissions', 'LeadController@getsubmissions')->name('getsubmissions');
     Route::get('/getwithdrawalrequests', 'LeadController@getwithdrawalrequests')->name('getwithdrawalrequests');
     Route::get('/gettestimonials', 'LeadController@gettestimonials')->name('gettestimonials');
     Route::get('/getstories', 'LeadController@getstories')->name('getstories');
