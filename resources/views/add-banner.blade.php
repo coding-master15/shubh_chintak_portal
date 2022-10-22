@@ -18,7 +18,7 @@
                                         {{ csrf_field() }}
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <span>Url: </span>
+                                                <span>Name: </span>
                                                 <input class="form-control" required="required" type="text" name="url" id="">
                                             
                                             </div>
