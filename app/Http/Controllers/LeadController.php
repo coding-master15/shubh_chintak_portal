@@ -162,7 +162,7 @@ class LeadController extends Controller
                     ->addIndexColumn()
                     ->addColumn('banner', function($row){
                       $banner = Banner::find($row->banner_id);
-                      return '<img src="'.$banner->image.'" />';
+                      return '<img height="80px" src="'.$banner->image.'" />';
                     })
                     ->addColumn('action', function($row){
                       $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
