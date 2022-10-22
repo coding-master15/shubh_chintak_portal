@@ -1352,6 +1352,17 @@ Route::group(['middleware' => 'auth'] , function() {
                 // $pageName = 'ordering_sorting';
                 return view('pages.tables.table_notifications')->with($data);
             });
+            Route::get('/submissions', function() {
+                // $category_name = '';
+                $data = [
+                    'category_name' => 'submissions',
+                    'page_name' => 'submissions',
+                    'has_scrollspy' => 0,
+                    'scrollspy_offset' => '',
+                    ];
+                // $pageName = 'ordering_sorting';
+                return view('pages.tables.table_submissions')->with($data);
+            });
             Route::get('/testimonials', function() {
                 // $category_name = '';
                 $data = [
