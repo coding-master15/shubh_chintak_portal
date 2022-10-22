@@ -115,6 +115,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::post('/delete/testimonial', [TestimonialController::class, 'deleteTestimonial']);
     Route::post('/delete/user', [TestimonialController::class, 'deleteUser']);
     Route::post('/delete/notification', [TestimonialController::class, 'deleteNotification']);
+    Route::post('/delete/submission', [TestimonialController::class, 'deleteSubmission']);
     Route::post('/delete/story', [StoryController::class, 'deleteStory']);
     Route::post('/add/withdrawal', [WithdrawalDetailsController::class, 'updateStatus']);
     
