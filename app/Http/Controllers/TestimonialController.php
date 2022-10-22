@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Testimonial;
+use App\Models\Submission;
 use App\Models\Customer;
 
 use Illuminate\Http\Request;
@@ -17,6 +18,12 @@ class TestimonialController extends Controller
         ]);
 
         return redirect()->route('tables.testimonials', []);
+    }
+
+    public function deleteSubmission(Request $request) {
+        $data = Submission::find($request->input('id'));
+        $data->delete();
+        return redirect()->back()->withSuccess('Deleted');
     }
 
     public function deleteTestimonial(Request $request) {
