@@ -102,3 +102,7 @@ Route::post('address/get', function (Request $request) {
 Route::post('bank/get', function (Request $request) {
     return (new ApiController($request))->getBankDetails();
 });
+
+Route::post('notifications/read', function (Request $request) {
+    return (new ApiController($request))->readNotifications();
+});

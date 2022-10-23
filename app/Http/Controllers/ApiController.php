@@ -284,6 +284,13 @@ class ApiController extends Controller
         }
         return $customer;
     }
+
+    public function readNotifications() {
+     Notification::where('status', 'unread')->update([
+            'status' => 'read'
+        ]);
+        return array('status' => 1);
+    }
     
 
     public function saveBankDetails() {
