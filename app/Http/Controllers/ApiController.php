@@ -286,7 +286,7 @@ class ApiController extends Controller
     }
 
     public function readNotifications() {
-     Notification::where('status', 'unread')->update([
+     Notification::where('user_id', $this->request->input('user_id'))->where('status', 'unread')->update([
             'status' => 'read'
         ]);
         return array('status' => 1);
