@@ -1010,7 +1010,7 @@
       
       <script>        
           $('#bannerSelect').on('change', function () {
-            window.location.href = '{{url()->current()}}?banner_id='+this.value;
+            window.location.href = '{{ url()->current() }}?banner_id='+this.value;
           });
           $('#default-ordering').DataTable( {
               "oLanguage": {
@@ -1027,7 +1027,7 @@
                   type: 'get',
                   headers: { 'content-type': 'application/x-www-form-urlencoded', 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                   data: {
-                    'banner_id' : app('request')->input('banner_id')
+                    'banner_id' : "{{ app('request')->input('banner_id') }}"
                   },
               },
               "columns": [
