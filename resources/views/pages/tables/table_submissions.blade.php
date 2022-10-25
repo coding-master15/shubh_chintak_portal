@@ -7,7 +7,7 @@
                 
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <select id="bannerSelect" class="form-select" aria-label="Default select example">
-                    {{ $data = App\Model\Banner::get(); }}
+                    {{ $data = App\Models\Banner::get(); }}
                     @foreach ($data as $banner)
                         <option value="{{ $banner['id'] }}">{{ $banner['url'] }}</option>
                     @endforeach
