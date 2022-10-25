@@ -11,6 +11,7 @@
                         <div class="row">
                         <select id="bannerSelect" class="custom-select" aria-label="Default select example">
                         <?php $data = App\Models\Banner::get(); ?>
+                            <option value="">Select Banner</option>
                         @foreach ($data as $banner)
                             <option value="{{ $banner->id}}">{{ $banner->link }}</option>
                         @endforeach

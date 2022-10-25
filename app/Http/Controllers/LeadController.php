@@ -158,7 +158,7 @@ class LeadController extends Controller
     public function getsubmissions(Request $request)
     {
 
-                if($request->input('banner_id')) {
+                if($request->input('banner_id') && $request->input('banner_id') != '') {
                   $data = Submission::select('*')->where('banner_id', $request->input('banner_id'));
                 } else {
                   $data = Submission::select('*');
