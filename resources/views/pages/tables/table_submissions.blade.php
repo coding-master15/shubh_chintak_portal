@@ -11,7 +11,7 @@
                         <select id="bannerSelect" class="form-select" aria-label="Default select example">
                         <?php $data = App\Models\Banner::get(); ?>
                         @foreach ($data as $banner)
-                            <option value="{{ $banner->id}}">{{ $banner->url }}</option>
+                            <option value="{{ $banner->id}}">{{ $banner->link }}</option>
                         @endforeach
                         </select>
                             <div class="table-responsive mb-4 mt-4">
