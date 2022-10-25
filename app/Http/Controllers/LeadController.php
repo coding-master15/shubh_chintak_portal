@@ -157,7 +157,12 @@ class LeadController extends Controller
 
     public function getsubmissions(Request $request)
     {
-                $data = Submission::select('*');
+
+                if($request->input('banner_id')) {
+                  $data = Submission::select('*')->where('banner_id', $request->input('banner_id'));
+                } else {
+                  $data = Submission::select('*');
+                }
                 return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('banner', function($row){

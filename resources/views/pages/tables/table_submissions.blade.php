@@ -6,6 +6,12 @@
                 <div class="row layout-top-spacing">
                 
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <select id="bannerSelect" class="form-select" aria-label="Default select example">
+                    {{ $data = Banner::get(); }}
+                    @foreach ($data as $banner)
+                        <option value="{{ $banner['id'] }}">{{ $banner['url'] }}</option>
+                    @endforeach
+                    </select>
                         <div class="widget-content widget-content-area br-6">
                             <div class="table-responsive mb-4 mt-4">
                                 <table id="default-ordering" class="table table-hover" style="width:100%">
