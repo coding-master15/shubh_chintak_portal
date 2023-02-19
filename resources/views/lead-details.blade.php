@@ -36,6 +36,12 @@
                                                 <h4>{{ $lead->contact_two }}</h4>
                                             </div>
                                         </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <span>Expert Advice Needed: </span>
+                                                <h4>{{ $lead->advice ? 'Yes' : 'No' }}</h4>
+                                            </div>
+                                        </div>
                                         <!-- <div class="form-group">
                                             <div class="form-check pl-0">
                                                 <div class="custom-control custom-checkbox checkbox-info">
