@@ -28,6 +28,7 @@ class Lead extends Model
         'type',
         'budget',
         'area',
+        'advice',
         'city',
         'lat',
         'lon',
@@ -44,6 +45,7 @@ class Lead extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'advice' => 'boolean',
         'confirmed_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'

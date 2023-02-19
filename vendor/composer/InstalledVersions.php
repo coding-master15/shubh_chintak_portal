@@ -24,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '6bbc18a2fae52890499c01c472ccb1881af99e4d',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -434,12 +434,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '6bbc18a2fae52890499c01c472ccb1881af99e4d',
     ),
     'laravel/sail' => 
     array (
@@ -1373,6 +1373,24 @@ private static $installed = array (
       array (
       ),
       'reference' => 'a7fd01f06282923e9c63fa27fe6b391e21dc321a',
+    ),
+    'yoco/yoco-php' => 
+    array (
+      'pretty_version' => 'v0.1.0-beta',
+      'version' => '0.1.0.0-beta',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0c9e0c6a9c5a27a15e878121eb194aac40bda6d3',
+    ),
+    'yoco/yoco-php-laravel' => 
+    array (
+      'pretty_version' => 'v0.1.0-beta',
+      'version' => '0.1.0.0-beta',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a6a47469a415b639c4ead3b485302073edc8208e',
     ),
   ),
 );
