@@ -139,7 +139,7 @@ class ApiController extends Controller
             'status' => $this->request->input('status'),
             'product_type' => $this->request->input('product_type'),
             'service_type' => $this->request->input('service_type'),
-            'advice' => $this->request->input('advice'),
+            'advice' => $this->request->input('advice') == 'true' ? 1 : 0,
             'type' => $this->request->input('type'),
             'budget' => $this->request->input('budget'),
             'area' => $this->request->input('area'),
