@@ -34,9 +34,7 @@ class ApiController extends Controller
     {
         $data = Lead::where('user_id', $this->request->input('user_id'))->paginate($this->request->input('per_page') ?? 10);
         foreach ($data as $lead) {
-            if ($lead->type == 'seller') {
-                $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
-            }
+            $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
         }
         return $data;
     }
@@ -93,9 +91,7 @@ class ApiController extends Controller
     {
         $data = \DB::table("leads")->where('is_hotdeal', 1)->where('status', '!=', 'success')->where('status', '!=', 'declined')->orderBy(\DB::raw("3959 * acos( cos( radians({$this->request->input('lat')}) ) * cos( radians( lat ) ) * cos( radians( lon ) - radians(-{$this->request->input('long')}) ) + sin( radians({$this->request->input('lat')}) ) * sin(radians(lat)) )"), 'ASC')->paginate($this->request->input('per_page') ?? 10);
         foreach ($data as $lead) {
-            if ($lead->type == 'seller') {
-                $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
-            }
+            $lead->meta = LeadMeta::where('lead_id', $lead->id)->get();
         }
         return $data;
     }
