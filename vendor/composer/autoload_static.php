@@ -46,6 +46,8 @@ class ComposerStaticInitf83d0d7a3e0f94db87c300f74a3fccf7
         ),
         'Y' => 
         array (
+            'Yoco\\Laravel\\' => 13,
+            'Yoco\\' => 5,
             'Yajra\\DataTables\\' => 17,
         ),
         'W' => 
@@ -188,6 +190,14 @@ class ComposerStaticInitf83d0d7a3e0f94db87c300f74a3fccf7
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Yoco\\Laravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yoco/yoco-php-laravel/src/Yoco/Laravel',
+        ),
+        'Yoco\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco',
         ),
         'Yajra\\DataTables\\' => 
         array (
@@ -5930,6 +5940,15 @@ class ComposerStaticInitf83d0d7a3e0f94db87c300f74a3fccf7
         'Yajra\\DataTables\\Utilities\\Config' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Utilities/Config.php',
         'Yajra\\DataTables\\Utilities\\Helper' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Utilities/Helper.php',
         'Yajra\\DataTables\\Utilities\\Request' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Utilities/Request.php',
+        'Yoco\\ChargeResult' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/ChargeResult.php',
+        'Yoco\\ChargeResultSource' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/ChargeResultSource.php',
+        'Yoco\\Exceptions\\ApiKeyException' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/Exceptions/ApiKeyException.php',
+        'Yoco\\Exceptions\\DeclinedException' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/Exceptions/DeclinedException.php',
+        'Yoco\\Exceptions\\InternalException' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/Exceptions/InternalException.php',
+        'Yoco\\Exceptions\\YocoException' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/Exceptions/YocoException.php',
+        'Yoco\\Laravel\\YocoServiceProvider' => __DIR__ . '/..' . '/yoco/yoco-php-laravel/src/Yoco/Laravel/YocoServiceProvider.php',
+        'Yoco\\RefundResult' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/RefundResult.php',
+        'Yoco\\YocoClient' => __DIR__ . '/..' . '/yoco/yoco-php/src/Yoco/YocoClient.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 

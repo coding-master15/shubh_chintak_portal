@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '64a74cc469450db1ee7c5c257beb4540330da906',
+        'reference' => 'b3ac1658f36ca780a82b2bd4051dc6a87bf02880',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -376,7 +376,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '64a74cc469450db1ee7c5c257beb4540330da906',
+            'reference' => 'b3ac1658f36ca780a82b2bd4051dc6a87bf02880',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -751,8 +751,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1316,6 +1316,24 @@
             'reference' => 'a7fd01f06282923e9c63fa27fe6b391e21dc321a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../yajra/laravel-datatables-oracle',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'yoco/yoco-php' => array(
+            'pretty_version' => 'v0.1.0-beta',
+            'version' => '0.1.0.0-beta',
+            'reference' => '0c9e0c6a9c5a27a15e878121eb194aac40bda6d3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../yoco/yoco-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'yoco/yoco-php-laravel' => array(
+            'pretty_version' => 'v0.1.0-beta',
+            'version' => '0.1.0.0-beta',
+            'reference' => 'a6a47469a415b639c4ead3b485302073edc8208e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../yoco/yoco-php-laravel',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
