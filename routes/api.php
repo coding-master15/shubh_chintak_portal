@@ -23,8 +23,8 @@ Route::post('login', function (Request $request) {
     return (new ApiController($request))->login();
 });
 
-Route::post('register', function (Request $request) {
-    return (new ApiController($request))->register();
+Route::post('reg', function (Request $request) {
+    return (new ApiController($request))->regl();
 });
 
 Route::post('request/withdraw', function (Request $request) {

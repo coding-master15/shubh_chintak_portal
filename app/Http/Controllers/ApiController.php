@@ -213,7 +213,7 @@ class ApiController extends Controller
         return Customer::where('phone', $this->request->input('phone'))->where('phone_code', $this->request->input('phone_code'))->first();
     }
 
-    public function register()
+    public function regl()
     {
         $value = Customer::insertGetId([
             'fname' => $this->request->input('fname'),
